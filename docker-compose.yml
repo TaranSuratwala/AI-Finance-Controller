@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  backend:
+    build: .
+    container_name: razorpay_ai_backend
+    ports:
+      - "8000:8000"
+    command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+    env_file:
+      - .env
+    volumes:
+      - ./audit_ledger.db:/app/audit_ledger.db
+
+  frontend:
+    build: .
+    container_name: razorpay_ai_frontend
+    ports:
+      - "8501:8501"
+    command: ["streamlit", "run", "eval_ui.py"]
+    env_file:
+      - .env
+    volumes:
+      - ./audit_ledger.db:/app/audit_ledger.db
+      - ./synthetic_dataset.json:/app/synthetic_dataset.json
+      - ./github_dataset.json:/app/github_dataset.json

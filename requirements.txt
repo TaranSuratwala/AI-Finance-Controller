@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+pydantic
+instructor
+google-generativeai
+fakeredis
+requests
+streamlit
+pandas
+anthropic
+openai
+python-dotenv
