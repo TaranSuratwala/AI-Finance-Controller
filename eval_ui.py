@@ -35,8 +35,9 @@ st.markdown("""
 st.markdown('<p class="main-header">🛡️ AI Finance Controller</p>', unsafe_allow_html=True)
 st.markdown('<p class="sub-header">Evaluation Engine & Production Dashboard</p>', unsafe_allow_html=True)
 st.markdown("""
-This dashboard runs our AI Finance Controller against synthetic and real-world adversarial datasets.
-It tests the system's ability to handle **messy text, missing fees, floating-point mismatches, and prompt injections**.
+This dashboard runs our AI Finance Controller against a synthetic adversarial set and a distribution-shift
+stress test (real financial amounts, synthetic settlement text). It tests the system's ability to handle
+**messy text, missing fees, floating-point mismatches, and prompt injections**.
 """)
 
 @st.cache_data
@@ -49,11 +50,25 @@ def load_dataset(filename):
 
 st.sidebar.header("Dataset Configuration")
 dataset_choice = st.sidebar.selectbox(
-    "Choose Dataset", 
-    ["Synthetic Data (synthetic_dataset.json)", "GitHub Real-World Data (github_dataset.json)"]
+    "Choose Dataset",
+    [
+        "Synthetic Adversarial Set (synthetic_dataset.json)",
+        "Distribution-Shift Stress Test — real amounts, synthetic text (github_dataset.json)",
+        "Real OCR Receipts — SROIE ICDAR 2019 (sroie_dataset.json)",
+    ]
+)
+st.sidebar.caption(
+    "None of these sets are real Razorpay settlement data — that's private and not publicly "
+    "available. Set 2 uses real, public credit-application amounts. Set 3 uses real OCR scans "
+    "from public receipt datasets."
 )
 
-filename = "synthetic_dataset.json" if "Synthetic" in dataset_choice else "github_dataset.json"
+if "Synthetic" in dataset_choice:
+    filename = "synthetic_dataset.json"
+elif "Distribution-Shift" in dataset_choice:
+    filename = "github_dataset.json"
+else:
+    filename = "sroie_dataset.json"
 dataset = load_dataset(filename)
 
 if not dataset:
@@ -145,8 +160,8 @@ async def run_evaluation(dataset_to_run):
         result = await evaluate_record(test_case)
         results.append(result)
         progress_bar.progress((i + 1) / len(dataset_to_run))
-        # Add a 4 second delay to stay under the 15 RPM Gemini Free Tier limit
-        await asyncio.sleep(4)
+        # Add a 5 second delay to comfortably stay under the 15 RPM Gemini Free Tier limit
+        await asyncio.sleep(5)
         
     status_text.text("Evaluation Complete!")
     return results

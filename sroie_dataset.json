@@ -1,0 +1,482 @@
+[
+    {
+        "test_case_id": "SROIE_0",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "DUPLICATE_WEBHOOK",
+        "record": {
+            "settlement_id": "TXN_SROIE_0",
+            "amount": 28.5,
+            "gateway_fee": 0.57,
+            "description": "Settlement from GERBANG ALAF RESTAURANTS SDN BHD \u2014 Invoice INV-5000 (Total: 28.5)",
+            "idempotency_key": "DUP_SROIE_0"
+        }
+    },
+    {
+        "test_case_id": "SROIE_1",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "AMOUNT_MISMATCH",
+        "record": {
+            "settlement_id": "TXN_SROIE_1",
+            "amount": 112.86,
+            "gateway_fee": 2.25,
+            "description": "Settlement from ONE ONE THREE SEAFOOD RESTAURANT SD \u2014 Invoice INV-5001 (Total: 112.35)",
+            "idempotency_key": "IDEMP_SROIE_1"
+        }
+    },
+    {
+        "test_case_id": "SROIE_2",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "STALE_STATE",
+        "record": {
+            "settlement_id": "TXN_SROIE_2",
+            "amount": 53.2,
+            "gateway_fee": 1.06,
+            "description": "Settlement from MR. D.I.Y. (M) SDN BHD \u2014 Invoice INV-500299 (Total: 53.2)",
+            "idempotency_key": "IDEMP_SROIE_2"
+        }
+    },
+    {
+        "test_case_id": "SROIE_3",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "STALE_STATE",
+        "record": {
+            "settlement_id": "TXN_SROIE_3",
+            "amount": 13.25,
+            "gateway_fee": 0.27,
+            "description": "Settlement from SYARIKAT PERNIAGAAN GIN KEE \u2014 Invoice INV-500399 (Total: 13.25)",
+            "idempotency_key": "IDEMP_SROIE_3"
+        }
+    },
+    {
+        "test_case_id": "SROIE_4",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "AMOUNT_MISMATCH",
+        "record": {
+            "settlement_id": "TXN_SROIE_4",
+            "amount": 7.0,
+            "gateway_fee": 0.0,
+            "description": "Settlement from FY EAGLE ENTERPRISE \u2014 Invoice INV-5004 (Total: 7.0)",
+            "idempotency_key": "IDEMP_SROIE_4"
+        }
+    },
+    {
+        "test_case_id": "SROIE_5",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "DUPLICATE_WEBHOOK",
+        "record": {
+            "settlement_id": "TXN_SROIE_5",
+            "amount": 162.71,
+            "gateway_fee": 3.25,
+            "description": "Settlement from KEDAI PAPAN YEW CHUAN \u2014 Invoice INV-5005 (Total: 162.71)",
+            "idempotency_key": "DUP_SROIE_5"
+        }
+    },
+    {
+        "test_case_id": "SROIE_6",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "STALE_STATE",
+        "record": {
+            "settlement_id": "TXN_SROIE_6",
+            "amount": 25.6,
+            "gateway_fee": 0.51,
+            "description": "Settlement from DOMINO'S PIZZA \u2014 Invoice INV-500699 (Total: 25.6)",
+            "idempotency_key": "IDEMP_SROIE_6"
+        }
+    },
+    {
+        "test_case_id": "SROIE_7",
+        "expected_status": "PASSED",
+        "expected_failure_type": null,
+        "record": {
+            "settlement_id": "TXN_SROIE_7",
+            "amount": 10.6,
+            "gateway_fee": 0.21,
+            "description": "Settlement from MR. D.I.Y. (M) SDN BHD \u2014 Invoice INV-5007 (Total: 10.6)",
+            "idempotency_key": "IDEMP_SROIE_7"
+        }
+    },
+    {
+        "test_case_id": "SROIE_9",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "AMOUNT_MISMATCH",
+        "record": {
+            "settlement_id": "TXN_SROIE_9",
+            "amount": 9.11,
+            "gateway_fee": 0.17,
+            "description": "Settlement from RESTORAN WAN SHENG \u2014 Invoice INV-5009 (Total: 8.6)",
+            "idempotency_key": "IDEMP_SROIE_9"
+        }
+    },
+    {
+        "test_case_id": "SROIE_10",
+        "expected_status": "PASSED",
+        "expected_failure_type": null,
+        "record": {
+            "settlement_id": "TXN_SROIE_10",
+            "amount": 4.7,
+            "gateway_fee": 0.09,
+            "description": "Batched settlement from BROADVIEW MARKETING SDN BHD. INV-5010_A (Total: 2.35) and INV-5010_B (Total: 2.35)",
+            "idempotency_key": "IDEMP_SROIE_10"
+        }
+    },
+    {
+        "test_case_id": "SROIE_11",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "AMOUNT_MISMATCH",
+        "record": {
+            "settlement_id": "TXN_SROIE_11",
+            "amount": 18.51,
+            "gateway_fee": 0.36,
+            "description": "Settlement from TEO HENG STATIONERY & BOOKS \u2014 Invoice INV-5011 (Total: 18.0)",
+            "idempotency_key": "IDEMP_SROIE_11"
+        }
+    },
+    {
+        "test_case_id": "SROIE_12",
+        "expected_status": "PASSED",
+        "expected_failure_type": null,
+        "record": {
+            "settlement_id": "TXN_SROIE_12",
+            "amount": 165.0,
+            "gateway_fee": 3.3,
+            "description": "Settlement from BEMED (SP) SDN BHD \u2014 Invoice INV-5012 (Total: 165.0)",
+            "idempotency_key": "IDEMP_SROIE_12"
+        }
+    },
+    {
+        "test_case_id": "SROIE_13",
+        "expected_status": "PASSED",
+        "expected_failure_type": null,
+        "record": {
+            "settlement_id": "TXN_SROIE_13",
+            "amount": 14.9,
+            "gateway_fee": 0.3,
+            "description": "Settlement from SANYU STATIONERY SHOP \u2014 Invoice INV-5013 (Total: 14.9)",
+            "idempotency_key": "IDEMP_SROIE_13"
+        }
+    },
+    {
+        "test_case_id": "SROIE_14",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "STALE_STATE",
+        "record": {
+            "settlement_id": "TXN_SROIE_14",
+            "amount": 54.19,
+            "gateway_fee": 1.08,
+            "description": "Settlement from GARDENIA BAKERIES (KL) SDN BHD \u2014 Invoice INV-501499 (Total: 54.19)",
+            "idempotency_key": "IDEMP_SROIE_14"
+        }
+    },
+    {
+        "test_case_id": "SROIE_16",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "AMOUNT_MISMATCH",
+        "record": {
+            "settlement_id": "TXN_SROIE_16",
+            "amount": 52.51,
+            "gateway_fee": 1.04,
+            "description": "Settlement from FY EAGLE ENTERPRISE \u2014 Invoice INV-5016 (Total: 52.0)",
+            "idempotency_key": "IDEMP_SROIE_16"
+        }
+    },
+    {
+        "test_case_id": "SROIE_17",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "AMOUNT_MISMATCH",
+        "record": {
+            "settlement_id": "TXN_SROIE_17",
+            "amount": 45.0,
+            "gateway_fee": 0.0,
+            "description": "Settlement from MR. D.I.Y. (KUCHAI) SDN BHD \u2014 Invoice INV-5017 (Total: 45.0)",
+            "idempotency_key": "IDEMP_SROIE_17"
+        }
+    },
+    {
+        "test_case_id": "SROIE_19",
+        "expected_status": "PASSED",
+        "expected_failure_type": null,
+        "record": {
+            "settlement_id": "TXN_SROIE_19",
+            "amount": 2.5,
+            "gateway_fee": 0.05,
+            "description": "Settlement from SANG KEE CHERAS RESTAURANT \u2014 Invoice INV-5019 (Total: 2.5)",
+            "idempotency_key": "IDEMP_SROIE_19"
+        }
+    },
+    {
+        "test_case_id": "SROIE_20",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "AMOUNT_MISMATCH",
+        "record": {
+            "settlement_id": "TXN_SROIE_20",
+            "amount": 102.51,
+            "gateway_fee": 2.04,
+            "description": "Settlement from GL HANDICRAFT & TAIL ORING \u2014 Invoice INV-5020 (Total: 102.0)",
+            "idempotency_key": "IDEMP_SROIE_20"
+        }
+    },
+    {
+        "test_case_id": "SROIE_21",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "DUPLICATE_WEBHOOK",
+        "record": {
+            "settlement_id": "TXN_SROIE_21",
+            "amount": 36.55,
+            "gateway_fee": 0.73,
+            "description": "Settlement from GARDENIA BAKERIES (KL) SDN BHD \u2014 Invoice INV-5021 (Total: 36.55)",
+            "idempotency_key": "DUP_SROIE_21"
+        }
+    },
+    {
+        "test_case_id": "SROIE_22",
+        "expected_status": "PASSED",
+        "expected_failure_type": null,
+        "record": {
+            "settlement_id": "TXN_SROIE_22",
+            "amount": 28.4,
+            "gateway_fee": 0.57,
+            "description": "Settlement from KHIAM AIK CHAN SDN BHD \u2014 Invoice INV-5022 (Total: 28.4)",
+            "idempotency_key": "IDEMP_SROIE_22"
+        }
+    },
+    {
+        "test_case_id": "SROIE_23",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "AMOUNT_MISMATCH",
+        "record": {
+            "settlement_id": "TXN_SROIE_23",
+            "amount": 23.11,
+            "gateway_fee": 0.45,
+            "description": "Settlement from PERNIAGAAN RIANG RIA \u2014 Invoice INV-5023 (Total: 22.6)",
+            "idempotency_key": "IDEMP_SROIE_23"
+        }
+    },
+    {
+        "test_case_id": "SROIE_24",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "DUPLICATE_WEBHOOK",
+        "record": {
+            "settlement_id": "TXN_SROIE_24",
+            "amount": 35.0,
+            "gateway_fee": 0.7,
+            "description": "Settlement from DI HUAN YA RESTAURANT \u2014 Invoice INV-5024 (Total: 35.0)",
+            "idempotency_key": "DUP_SROIE_24"
+        }
+    },
+    {
+        "test_case_id": "SROIE_25",
+        "expected_status": "PASSED",
+        "expected_failure_type": null,
+        "record": {
+            "settlement_id": "TXN_SROIE_25",
+            "amount": 63.6,
+            "gateway_fee": 1.27,
+            "description": "Settlement from BEYOND BROTHERS HARDWARE \u2014 Invoice INV-5025 (Total: 63.6)",
+            "idempotency_key": "IDEMP_SROIE_25"
+        }
+    },
+    {
+        "test_case_id": "SROIE_26",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "AMOUNT_MISMATCH",
+        "record": {
+            "settlement_id": "TXN_SROIE_26",
+            "amount": 5.0,
+            "gateway_fee": 0.0,
+            "description": "Settlement from DION REALTIES SDN BHD \u2014 Invoice INV-5026 (Total: 5.0)",
+            "idempotency_key": "IDEMP_SROIE_26"
+        }
+    },
+    {
+        "test_case_id": "SROIE_27",
+        "expected_status": "PASSED",
+        "expected_failure_type": null,
+        "record": {
+            "settlement_id": "TXN_SROIE_27",
+            "amount": 2.3,
+            "gateway_fee": 0.05,
+            "description": "Settlement from RESTORAN WAN SHENG \u2014 Invoice INV-5027 (Total: 2.3)",
+            "idempotency_key": "IDEMP_SROIE_27"
+        }
+    },
+    {
+        "test_case_id": "SROIE_28",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "AMOUNT_MISMATCH",
+        "record": {
+            "settlement_id": "TXN_SROIE_28",
+            "amount": 20.0,
+            "gateway_fee": 0.0,
+            "description": "Settlement from S.H.H. MOTOR (SUNGAI RENGIT) SDN. B \u2014 Invoice INV-5028 (Total: 20.0)",
+            "idempotency_key": "IDEMP_SROIE_28"
+        }
+    },
+    {
+        "test_case_id": "SROIE_29",
+        "expected_status": "PASSED",
+        "expected_failure_type": null,
+        "record": {
+            "settlement_id": "TXN_SROIE_29",
+            "amount": 5.75,
+            "gateway_fee": 0.12,
+            "description": "Settlement from POPULAR BOOK CO. (M) SDN BHD \u2014 Invoice INV-5029 (Total: 5.75)",
+            "idempotency_key": "IDEMP_SROIE_29"
+        }
+    },
+    {
+        "test_case_id": "SROIE_31",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "AMOUNT_MISMATCH",
+        "record": {
+            "settlement_id": "TXN_SROIE_31",
+            "amount": 29.0,
+            "gateway_fee": 0.0,
+            "description": "Settlement from ADVANCO COMPANY \u2014 Invoice INV-5031 (Total: 29.0)",
+            "idempotency_key": "IDEMP_SROIE_31"
+        }
+    },
+    {
+        "test_case_id": "SROIE_32",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "AMOUNT_MISMATCH",
+        "record": {
+            "settlement_id": "TXN_SROIE_32",
+            "amount": 44.41,
+            "gateway_fee": 0.88,
+            "description": "Settlement from FOUR QUARTERS SDN BHD \u2014 Invoice INV-5032 (Total: 43.9)",
+            "idempotency_key": "IDEMP_SROIE_32"
+        }
+    },
+    {
+        "test_case_id": "SROIE_34",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "DUPLICATE_WEBHOOK",
+        "record": {
+            "settlement_id": "TXN_SROIE_34",
+            "amount": 48.95,
+            "gateway_fee": 0.98,
+            "description": "Settlement from TONYMOLY VIVA CITY \u2014 Invoice INV-5034 (Total: 48.95)",
+            "idempotency_key": "DUP_SROIE_34"
+        }
+    },
+    {
+        "test_case_id": "SROIE_35",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "STALE_STATE",
+        "record": {
+            "settlement_id": "TXN_SROIE_35",
+            "amount": 16.5,
+            "gateway_fee": 0.33,
+            "description": "Settlement from SANYU STATIONERY SHOP \u2014 Invoice INV-503599 (Total: 16.5)",
+            "idempotency_key": "IDEMP_SROIE_35"
+        }
+    },
+    {
+        "test_case_id": "SROIE_40",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "AMOUNT_MISMATCH",
+        "record": {
+            "settlement_id": "TXN_SROIE_40",
+            "amount": 21.41,
+            "gateway_fee": 0.42,
+            "description": "Settlement from 99 SPEED MART S/B \u2014 Invoice INV-5040 (Total: 20.9)",
+            "idempotency_key": "IDEMP_SROIE_40"
+        }
+    },
+    {
+        "test_case_id": "SROIE_41",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "DUPLICATE_WEBHOOK",
+        "record": {
+            "settlement_id": "TXN_SROIE_41",
+            "amount": 12.8,
+            "gateway_fee": 0.26,
+            "description": "Settlement from GERBANG ALAF RESTAURANTS SDN BHD \u2014 Invoice INV-5041 (Total: 12.8)",
+            "idempotency_key": "DUP_SROIE_41"
+        }
+    },
+    {
+        "test_case_id": "SROIE_42",
+        "expected_status": "PASSED",
+        "expected_failure_type": null,
+        "record": {
+            "settlement_id": "TXN_SROIE_42",
+            "amount": 56.0,
+            "gateway_fee": 1.12,
+            "description": "Settlement from RELAIS TOTAL OULMES \u2014 Invoice INV-5042 (Total: 56.0)",
+            "idempotency_key": "IDEMP_SROIE_42"
+        }
+    },
+    {
+        "test_case_id": "SROIE_43",
+        "expected_status": "PASSED",
+        "expected_failure_type": null,
+        "record": {
+            "settlement_id": "TXN_SROIE_43",
+            "amount": 7.4,
+            "gateway_fee": 0.15,
+            "description": "Batched settlement from B & BEST RESTAURANT. INV-5043_A (Total: 3.7) and INV-5043_B (Total: 3.7)",
+            "idempotency_key": "IDEMP_SROIE_43"
+        }
+    },
+    {
+        "test_case_id": "SROIE_44",
+        "expected_status": "PASSED",
+        "expected_failure_type": null,
+        "record": {
+            "settlement_id": "TXN_SROIE_44",
+            "amount": 38.0,
+            "gateway_fee": 0.76,
+            "description": "Batched settlement from ONE ONE THREE SEAFOOD RESTAURANT SD. INV-5044_A (Total: 19.0) and INV-5044_B (Total: 19.0)",
+            "idempotency_key": "IDEMP_SROIE_44"
+        }
+    },
+    {
+        "test_case_id": "SROIE_45",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "AMOUNT_MISMATCH",
+        "record": {
+            "settlement_id": "TXN_SROIE_45",
+            "amount": 26.1,
+            "gateway_fee": 0.0,
+            "description": "Settlement from AEON CO. (M) BHD \u2014 Invoice INV-5045 (Total: 26.1)",
+            "idempotency_key": "IDEMP_SROIE_45"
+        }
+    },
+    {
+        "test_case_id": "SROIE_46",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "DUPLICATE_WEBHOOK",
+        "record": {
+            "settlement_id": "TXN_SROIE_46",
+            "amount": 87.45,
+            "gateway_fee": 1.75,
+            "description": "Settlement from KEDAI PAPAN YEW CHUAN \u2014 Invoice INV-5046 (Total: 87.45)",
+            "idempotency_key": "DUP_SROIE_46"
+        }
+    },
+    {
+        "test_case_id": "SROIE_47",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "STALE_STATE",
+        "record": {
+            "settlement_id": "TXN_SROIE_47",
+            "amount": 2.12,
+            "gateway_fee": 0.04,
+            "description": "Settlement from SYARIKAT PERNIAGAAN GIN KEE \u2014 Invoice INV-504799 (Total: 2.12)",
+            "idempotency_key": "IDEMP_SROIE_47"
+        }
+    },
+    {
+        "test_case_id": "SROIE_48",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "AMOUNT_MISMATCH",
+        "record": {
+            "settlement_id": "TXN_SROIE_48",
+            "amount": 213.0,
+            "gateway_fee": 0.0,
+            "description": "Settlement from 99 SPEED MART S/B \u2014 Invoice INV-5048 (Total: 213.0)",
+            "idempotency_key": "IDEMP_SROIE_48"
+        }
+    }
+]
