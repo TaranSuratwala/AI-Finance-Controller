@@ -168,16 +168,7 @@ async def run_evaluation(dataset_to_run):
 
 if st.button("🚀 Run Evaluation Suite"):
     with st.spinner("Running AI and Gatekeeper..."):
-        # Create a new event loop for streamlit context if needed
-        def run_async(coro):
-            try:
-                loop = asyncio.get_event_loop()
-            except RuntimeError:
-                loop = asyncio.new_event_loop()
-                asyncio.set_event_loop(loop)
-            return loop.run_until_complete(coro)
-
-        results = run_async(run_evaluation(dataset))
+        results = asyncio.run(run_evaluation(dataset))
         
         st.success(f"Processed {len(results)} records.")
         
