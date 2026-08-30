@@ -246,18 +246,21 @@ if st.button("🚀 Run Evaluation Suite"):
         with tab2:
             st.subheader("Immutable Audit Ledger (Rejections)")
             st.markdown("In production, this ledger is queried by the FinOps team to manually review anomalies caught by the Gatekeeper.")
-            rejections = audit_ledger.get_recent_rejections(limit=100)
-            if rejections:
-                audit_df = pd.DataFrame(rejections)
-                st.dataframe(audit_df, use_container_width=True)
-            else:
-                st.info("No rejections found in the audit ledger yet.")
+            with st.spinner("Fetching rejection ledger..."):
+                import asyncio
+                rejections = asyncio.run(audit_ledger.get_recent_rejections(limit=100))
+                if rejections:
+                    audit_df = pd.DataFrame(rejections)
+                    st.dataframe(audit_df, use_container_width=True)
+                else:
+                    st.info("No rejections found in the audit ledger yet.")
                 
         with tab3:
             st.subheader("🛍️ Merchant & End-User View")
             st.markdown("This tab simulates what a Merchant sees. Technical errors like `AMOUNT_MISMATCH` are transformed into actionable, human-readable AI explanations so the user can resolve their own payment issues!")
-            
-            rejections = audit_ledger.get_recent_rejections(limit=10)
+        with st.expander("Admin Panel: View Raw Ledger"):
+            import asyncio
+            rejections = asyncio.run(audit_ledger.get_recent_rejections(limit=10))
             if rejections:
                 for rej in rejections:
                     # Try to extract the AI's reasoning to show as a friendly message

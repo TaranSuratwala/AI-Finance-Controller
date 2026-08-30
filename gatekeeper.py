@@ -1,12 +1,13 @@
-import fakeredis.aioredis as redis
+import redis.asyncio as redis
 from models import AIProposal, SettlementRecord
 from decimal import Decimal, ROUND_HALF_UP
+from config import settings
 
 class RulesEngine:
     def __init__(self):
-        # Using FakeRedis for local execution. In Prod: swap for real Redis cluster
-        self.redis = redis.FakeRedis(decode_responses=True)
-        self.TOLERANCE_PAISE = 50
+        # Using Real Redis for idempotency and locking
+        self.redis = redis.from_url(settings.redis_url, decode_responses=True)
+        self.TOLERANCE_PAISE = settings.tolerance_paise
         
         # Mock ERP Database of valid invoices
         self.valid_invoices = {"INV-100", "INV-101", "INV-102", "INV-103", "INV-104", "INV-105", "INV-404"}

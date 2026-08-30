@@ -1,9 +1,10 @@
 from pydantic import BaseModel, Field
 from typing import List
+from decimal import Decimal
 
 class InvoiceMatch(BaseModel):
     invoice_id: str = Field(..., description="The exact ERP invoice ID")
-    allocated_amount: float = Field(..., description="Amount allocated to this invoice")
+    allocated_amount: Decimal = Field(..., description="Amount allocated to this invoice")
 
 class AIProposal(BaseModel):
     settlement_id: str
@@ -14,7 +15,7 @@ class AIProposal(BaseModel):
 
 class SettlementRecord(BaseModel):
     settlement_id: str
-    amount: float
-    gateway_fee: float
+    amount: Decimal
+    gateway_fee: Decimal
     description: str
     idempotency_key: str = Field(default="")

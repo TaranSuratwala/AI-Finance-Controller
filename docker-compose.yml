@@ -11,6 +11,8 @@ services:
       - .env
     volumes:
       - ./audit_ledger.db:/app/audit_ledger.db
+    depends_on:
+      - redis
 
   frontend:
     build: .
@@ -24,3 +26,11 @@ services:
       - ./audit_ledger.db:/app/audit_ledger.db
       - ./synthetic_dataset.json:/app/synthetic_dataset.json
       - ./github_dataset.json:/app/github_dataset.json
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:alpine
+    container_name: razorpay_ai_redis
+    ports:
+      - "6379:6379"

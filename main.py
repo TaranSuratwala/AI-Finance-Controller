@@ -10,11 +10,17 @@ import hmac
 import hashlib
 import json
 
-app = FastAPI(title="Razorpay AI Finance Controller Webhook")
-rules_engine = RulesEngine()
+from config import settings
 
-# In production, this comes from environment variables
-RAZORPAY_WEBHOOK_SECRET = "buildathon_secret_2026"
+from contextlib import asynccontextmanager
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    await audit_ledger.init_db()
+    yield
+
+app = FastAPI(title="Razorpay AI Finance Controller Webhook", lifespan=lifespan)
+rules_engine = RulesEngine()
 
 def verify_signature(payload_body: bytes, signature: str, secret: str) -> bool:
     """Verifies the webhook signature using HMAC SHA256 (Standard Razorpay Security)"""
@@ -35,7 +41,7 @@ async def process_single_record(record: SettlementRecord):
         
         # 3. Final Write
         if evaluation["status"] == "REJECTED":
-            audit_ledger.log_transaction(
+            await audit_ledger.log_transaction(
                 settlement_id=record.settlement_id,
                 status=evaluation["status"],
                 failure_reason=evaluation.get("failure_type", "UNKNOWN"),
@@ -48,7 +54,7 @@ async def process_single_record(record: SettlementRecord):
             
     except Exception as e:
         print(f"CRITICAL ERROR processing {record.settlement_id}: {str(e)}")
-        audit_ledger.log_transaction(
+        await audit_ledger.log_transaction(
             settlement_id=record.settlement_id,
             status="ERROR",
             failure_reason="SYSTEM_ERROR",
@@ -67,7 +73,7 @@ async def razorpay_webhook(request: Request, background_tasks: BackgroundTasks):
         raise HTTPException(status_code=401, detail="Missing X-Razorpay-Signature header")
         
     raw_body = await request.body()
-    if not verify_signature(raw_body, signature, RAZORPAY_WEBHOOK_SECRET):
+    if not verify_signature(raw_body, signature, settings.razorpay_webhook_secret):
         print("🚨 SECURITY ALERT: Invalid Webhook Signature Detected!")
         raise HTTPException(status_code=401, detail="Invalid signature")
 
