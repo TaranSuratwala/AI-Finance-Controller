@@ -67,16 +67,24 @@ CRITICAL INSTRUCTIONS:
 5. Set confidence_score honestly. If the text clearly contains an invoice ID and total amount, assign a high confidence score (e.g., 0.95 or 1.0). Only lower it if the text is completely ambiguous or unreadable.
 6. Provide clear, step-by-step reasoning.
 """
-    try:
-        proposal = await client.chat.completions.create(
-            messages=[{"role": "user", "content": prompt}],
-            response_model=AIProposal,
-            max_retries=0,
-        )
-        return proposal
-    except Exception as e:
-        print(f"API Error Caught: {repr(e)}")
-        return _regex_fallback(record_dict, error=e)
+        import asyncio
+        for attempt in range(3):
+            try:
+                proposal = await asyncio.wait_for(
+                    client.chat.completions.create(
+                        messages=[{"role": "user", "content": prompt}],
+                        response_model=AIProposal,
+                        max_retries=0,
+                    ),
+                    timeout=10.0
+                )
+                return proposal
+            except (asyncio.TimeoutError, Exception) as e:
+                if attempt == 2:
+                    print(f"API Error Caught after 3 attempts: {repr(e)}")
+                    return _regex_fallback(record_dict, error=e)
+                await asyncio.sleep(2 ** attempt)
+
 
 
 def _regex_fallback(record_dict: dict, error: Exception) -> AIProposal:

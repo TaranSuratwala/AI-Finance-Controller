@@ -14,6 +14,12 @@ class RulesEngine:
         self.closed_invoices = {"INV-199", "INV-299", "INV-399"}
 
     async def mock_erp_lookup(self, invoice_id: str):
+        """
+        TEST FIXTURE: Mocks an external ERP system (like SAP or Oracle).
+        Rule: Invoices ending in '99' or in `self.closed_invoices` are marked as CLOSED.
+        This is used specifically to test the 'Stale State' rejection path in our eval suite.
+        In production, this would make an actual API call to the ERP.
+        """
         # Mock ERP: invoices ending in '99' are already closed (forces a failure)
         if invoice_id in self.closed_invoices or invoice_id.endswith("99"):
             return {"state": "CLOSED"}
