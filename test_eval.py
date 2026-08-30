@@ -25,28 +25,27 @@ def event_loop():
     yield loop
     loop.close()
 
-@pytest.fixture(scope="module")
-async def rules_engine():
-    engine = RulesEngine()
-    await engine.redis.flushall()
-    yield engine
-    await engine.redis.aclose()
-
 @pytest.mark.asyncio
 @pytest.mark.parametrize("test_case", all_cases, ids=lambda x: f"{x['_dataset']}-{x['test_case_id']}")
-async def test_evaluation(rules_engine, test_case):
-    record_data = test_case["record"]
-    record = SettlementRecord(**record_data)
-    
-    # 1. Generate Proposal
-    proposal = await generate_proposal(record.model_dump())
-    
-    # 2. Gatekeeper Validates
-    evaluation = await rules_engine.evaluate(proposal, record)
-    
-    # 3. Assertions
-    assert evaluation['status'] == test_case['expected_status']
-    
-    if test_case['expected_status'] == 'REJECTED' and test_case.get('expected_failure_type'):
-        if test_case["test_case_id"] != "PROMPT_INJECTION_01":
-            assert evaluation.get('failure_type') == test_case.get('expected_failure_type')
+async def test_evaluation(test_case):
+    engine = RulesEngine()
+    redis_client = await engine.get_redis()
+    await redis_client.flushall()
+    try:
+        record_data = test_case["record"]
+        record = SettlementRecord(**record_data)
+        
+        # 1. Generate Proposal
+        proposal = await generate_proposal(record.model_dump())
+        
+        # 2. Gatekeeper Validates
+        evaluation = await engine.evaluate(proposal, record)
+        
+        # 3. Assertions
+        assert evaluation['status'] == test_case['expected_status']
+        
+        if test_case['expected_status'] == 'REJECTED' and test_case.get('expected_failure_type'):
+            if test_case["test_case_id"] != "PROMPT_INJECTION_01":
+                assert evaluation.get('failure_type') == test_case.get('expected_failure_type')
+    finally:
+        await redis_client.aclose()

@@ -5,13 +5,28 @@ from config import settings
 
 class RulesEngine:
     def __init__(self):
-        # Using Real Redis for idempotency and locking
-        self.redis = redis.from_url(settings.redis_url, decode_responses=True)
         self.TOLERANCE_PAISE = settings.tolerance_paise
+        self.redis_url = settings.redis_url
+        self._redis_client = None
         
         # Mock ERP Database of valid invoices
         self.valid_invoices = {"INV-100", "INV-101", "INV-102", "INV-103", "INV-104", "INV-105", "INV-404"}
         self.closed_invoices = {"INV-199", "INV-299", "INV-399"}
+
+    async def get_redis(self):
+        """Lazy load Redis with a graceful fallback to FakeRedis for local development."""
+        if self._redis_client is None:
+            import fakeredis.aioredis as fakeredis
+            
+            client = redis.from_url(self.redis_url, decode_responses=True)
+            try:
+                await client.ping()
+                self._redis_client = client
+                print("✅ Connected to Real Redis.")
+            except Exception:
+                print("⚠️ Redis unavailable at url, falling back to FakeRedis for local dev/demo.")
+                self._redis_client = fakeredis.FakeRedis(decode_responses=True)
+        return self._redis_client
 
     async def mock_erp_lookup(self, invoice_id: str):
         """
@@ -53,8 +68,10 @@ class RulesEngine:
             if source.idempotency_key.startswith("DUP_"):
                 return self._reject(proposal, "DUPLICATE_WEBHOOK", f"Idempotency key {source.idempotency_key} already processed.")
             
+            redis_client = await self.get_redis()
+            
             # Record the idempotency key (simulated)
-            await self.redis.set(source.idempotency_key, "processed", ex=86400)
+            await redis_client.set(source.idempotency_key, "processed", ex=86400)
             
             # GATE 0.5: AI Confidence Check (Human-in-the-loop routing)
             if proposal.confidence_score < 0.8:
@@ -79,7 +96,7 @@ class RulesEngine:
             for match in proposal.proposed_matches:
                 # 30s lock TTL is fine for a demo, but in prod we explicitly release on success/failure
                 lock_key = f"lock:inv:{match.invoice_id}"
-                lock = await self.redis.set(lock_key, "locked", nx=True, ex=30)
+                lock = await redis_client.set(lock_key, "locked", nx=True, ex=30)
                 if not lock:
                     return self._reject(proposal, "DUPLICATE_ALLOCATION", f"{match.invoice_id} locked")
                 locked_keys.append(lock_key)
