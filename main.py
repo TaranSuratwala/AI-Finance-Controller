@@ -41,6 +41,7 @@ async def process_single_record(record: SettlementRecord):
         
         # 3. Final Write
         if evaluation["status"] == "REJECTED":
+            metrics_counter["anomalies_rejected"] += 1
             await audit_ledger.log_transaction(
                 settlement_id=record.settlement_id,
                 status=evaluation["status"],
@@ -50,9 +51,11 @@ async def process_single_record(record: SettlementRecord):
             )
             print(f"⚠️ REJECTED: {record.settlement_id} sent to audit ledger. Reason: {evaluation['failure_type']}")
         else:
+            metrics_counter["successful_reconciliations"] += 1
             print(f"✅ SUCCESS: {record.settlement_id} written to master ledger.")
             
     except Exception as e:
+        metrics_counter["system_errors"] += 1
         print(f"CRITICAL ERROR processing {record.settlement_id}: {str(e)}")
         await audit_ledger.log_transaction(
             settlement_id=record.settlement_id,
@@ -62,11 +65,24 @@ async def process_single_record(record: SettlementRecord):
             proposal_dict={}
         )
 
+metrics_counter = {
+    "total_webhooks_received": 0,
+    "successful_reconciliations": 0,
+    "anomalies_rejected": 0,
+    "system_errors": 0
+}
+
+@app.get("/metrics")
+async def get_metrics():
+    """FinOps Observability endpoint for prometheus/dashboards."""
+    return metrics_counter
+
 @app.post("/webhook/razorpay")
 async def razorpay_webhook(request: Request, background_tasks: BackgroundTasks):
     """
     Live Webhook Endpoint for Razorpay to POST settlement reports.
     """
+    metrics_counter["total_webhooks_received"] += 1
     # 1. Security Check: Verify Razorpay Signature
     signature = request.headers.get("X-Razorpay-Signature")
     if not signature:
