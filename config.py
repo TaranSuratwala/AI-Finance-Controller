@@ -3,7 +3,7 @@ from decimal import Decimal
 
 class Settings(BaseSettings):
     razorpay_webhook_secret: str
-    tolerance_paise: int = 100
+    tolerance_paise: int = 50
     redis_url: str = "redis://localhost:6379"
     environment: str = "development"
 

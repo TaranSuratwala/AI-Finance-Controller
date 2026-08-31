@@ -13,6 +13,11 @@ import json
 from config import settings
 
 from contextlib import asynccontextmanager
+from slowapi import Limiter, _rate_limit_exceeded_handler
+from slowapi.util import get_remote_address
+from slowapi.errors import RateLimitExceeded
+
+limiter = Limiter(key_func=get_remote_address)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -20,6 +25,9 @@ async def lifespan(app: FastAPI):
     yield
 
 app = FastAPI(title="Razorpay AI Finance Controller Webhook", lifespan=lifespan)
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
+
 rules_engine = RulesEngine()
 
 def verify_signature(payload_body: bytes, signature: str, secret: str) -> bool:
@@ -78,6 +86,7 @@ async def get_metrics():
     return metrics_counter
 
 @app.post("/webhook/razorpay")
+@limiter.limit("5/minute")
 async def razorpay_webhook(request: Request, background_tasks: BackgroundTasks):
     """
     Live Webhook Endpoint for Razorpay to POST settlement reports.
