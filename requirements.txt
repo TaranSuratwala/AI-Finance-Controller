@@ -2,7 +2,7 @@ fastapi
 uvicorn
 pydantic
 instructor
-google-generativeai
+google-genai
 fakeredis
 requests
 streamlit
