@@ -17,23 +17,24 @@ For the Razorpay Buildathon 2026, I built the **AI Finance Controller**—a zero
 **You:** "The problem with using standard LLMs for financial reconciliation is **False Positives**. If an AI hallucinates a math calculation, it might mark a partially unpaid invoice as fully settled. In fintech, a False Positive is unacceptable.
 My solution pairs an **Independent Auditor AI** with a **Deterministic Gatekeeper**. The AI extracts the unstructured intent, but the Python-based Gatekeeper strictly enforces the mathematical reality. If they don't match down to the decimal, the transaction is safely blocked and logged."
 
-## 3. The Demo: Frontend (0:50 - 1:40)
-*(Screen recording of the Streamlit Dashboard. Show the Evaluation Matrix).*
+## 3. The Live Demo: The Architecture in Action (0:50 - 2:20)
+*(Screen recording showing a live Postman/cURL request hitting the FastAPI endpoint alongside the backend logs or dashboard. Captions or voiceover narrate the flow).*
 
-**You:** "Let's look at the Evaluation Engine. We subjected our system to an adversarial dataset filled with missing fees, floating-point mismatches, batched settlements, and even prompt injections. 
-As you can see, we achieved **100% accuracy** with a **0% False Positive Rate**.
-But what happens when an anomaly is caught?"
+**You:** "Let's see this in action. A settlement webhook arrives. First, our asynchronous server instantly verifies the cryptographic **HMAC SHA256 Signature** to ensure enterprise security.
+
+Next, the AI steps in. But here’s the architectural secret: the AI only *extracts* the unstructured data; it never calculates. 
+
+*(Highlight Case A on screen)*
+**Case A:** Watch this transaction. The AI's internal math hallucinated the wrong total, but its extraction of the invoice data was perfectly accurate. Because our Python Gatekeeper handles the deterministic math, the transaction still **passes**. We've neutralized the hallucination without failing the request.
+
+*(Highlight Case B on screen)*
+**Case B:** Now let's flip it. In this request, the AI extracts the wrong invoice amount. The Gatekeeper's strict mathematical check catches the discrepancy, and the transaction is safely **rejected**. 
 
 *(Switch to the Merchant Support Portal tab).*
+Instead of throwing a cryptic 500 error, rejected transactions hit our FinOps Audit Ledger. The AI translates the technical failure into a human-readable explanation, allowing the merchant to instantly trigger a payment link for the missing balance.
 
-**You:** "Instead of throwing a cryptic 500 error, rejected transactions are sent to the FinOps Audit Ledger, and directly to the **Merchant Support Portal**. Our AI translates the technical failure—like an Amount Mismatch—into a human-readable explanation, allowing the merchant to instantly click a button to send a payment link for the remaining balance."
-
-## 4. The Demo: Backend Architecture (1:40 - 2:20)
-*(Show VS Code or a Terminal side-by-side with a Postman/cURL request).*
-
-**You:** "But this isn't just a dashboard; it's a production-ready system. 
-The backend is an asynchronous **FastAPI server** that exposes a live webhook endpoint. When Razorpay posts a settlement, we instantly verify the cryptographic **HMAC SHA256 Signature** to ensure enterprise security. We extract the Idempotency Key to prevent double-processing, acknowledge the webhook instantly, and process the AI reconciliation in the background. 
-If the API rate limits hit? The system gracefully degrades to a deterministic Regex fallback engine, ensuring zero downtime."
+*(Send the same webhook again in Postman)*
+Finally, if that exact same webhook hits our system again? Our Idempotency key extraction steps in. **Duplicate webhook rejected.**"
 
 ## 5. The Close (2:20 - 2:45)
 *(Back to you on camera).*

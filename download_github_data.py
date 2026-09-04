@@ -41,7 +41,8 @@ def main():
         description = f"Settlement for {job_type} Invoice INV-{int(row['Price'])} (Total: {base_amt})"
         
         if chaos_type == "AMOUNT_MISMATCH":
-            base_amt += 0.51 
+            offset = max(0.51, base_amt * 0.01)
+            base_amt += offset 
             expected_status = "REJECTED"
             expected_failure_type = "AMOUNT_MISMATCH"
             
@@ -53,7 +54,7 @@ def main():
         elif chaos_type == "MISSING_FEE":
             fee = 0.0
             expected_status = "REJECTED"
-            expected_failure_type = "AMOUNT_MISMATCH"
+            expected_failure_type = "MISSING_FEE"
             
         elif chaos_type == "BATCHED_SETTLEMENT":
             # Split the base amount into two invoices

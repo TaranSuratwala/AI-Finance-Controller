@@ -1,602 +1,602 @@
 [
     {
-        "test_case_id": "GITHUB_3493",
-        "expected_status": "PASSED",
-        "expected_failure_type": null,
-        "record": {
-            "settlement_id": "TXN_3493",
-            "amount": 3000.0,
-            "gateway_fee": 60.0,
-            "description": "Batched Settlement for Hardware. INV-3690_A (Total: 1500.0) and INV-3690_B (Total: 1500.0)",
-            "idempotency_key": "IDEMP_3493"
-        }
-    },
-    {
-        "test_case_id": "GITHUB_4450",
+        "test_case_id": "GITHUB_359",
         "expected_status": "REJECTED",
-        "expected_failure_type": "AMOUNT_MISMATCH",
+        "expected_failure_type": "MISSING_FEE",
         "record": {
-            "settlement_id": "TXN_4450",
-            "amount": 900.51,
-            "gateway_fee": 18.0,
-            "description": "Settlement for Consulting Invoice INV-1020 (Total: 900.0)",
-            "idempotency_key": "IDEMP_4450"
-        }
-    },
-    {
-        "test_case_id": "GITHUB_3319",
-        "expected_status": "PASSED",
-        "expected_failure_type": null,
-        "record": {
-            "settlement_id": "TXN_3319",
-            "amount": 1300.0,
-            "gateway_fee": 26.0,
-            "description": "Batched Settlement for Hardware. INV-1675_A (Total: 650.0) and INV-1675_B (Total: 650.0)",
-            "idempotency_key": "IDEMP_3319"
-        }
-    },
-    {
-        "test_case_id": "GITHUB_1687",
-        "expected_status": "REJECTED",
-        "expected_failure_type": "AMOUNT_MISMATCH",
-        "record": {
-            "settlement_id": "TXN_1687",
-            "amount": 2180.0,
+            "settlement_id": "TXN_359",
+            "amount": 750.0,
             "gateway_fee": 0.0,
-            "description": "Settlement for Consulting Invoice INV-2654 (Total: 2180.0)",
-            "idempotency_key": "IDEMP_1687"
+            "description": "Settlement for Software Invoice INV-1244 (Total: 750.0)",
+            "idempotency_key": "IDEMP_359"
         }
     },
     {
-        "test_case_id": "GITHUB_643",
+        "test_case_id": "GITHUB_1584",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "MISSING_FEE",
+        "record": {
+            "settlement_id": "TXN_1584",
+            "amount": 1450.0,
+            "gateway_fee": 0.0,
+            "description": "Settlement for Hardware Invoice INV-1610 (Total: 1450.0)",
+            "idempotency_key": "IDEMP_1584"
+        }
+    },
+    {
+        "test_case_id": "GITHUB_1984",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "STALE_STATE",
+        "record": {
+            "settlement_id": "TXN_1984",
+            "amount": 1350.0,
+            "gateway_fee": 27.0,
+            "description": "Settlement for Invoice INV-144599 (Total: 1350.0)",
+            "idempotency_key": "IDEMP_1984"
+        }
+    },
+    {
+        "test_case_id": "GITHUB_772",
+        "expected_status": "PASSED",
+        "expected_failure_type": null,
+        "record": {
+            "settlement_id": "TXN_772",
+            "amount": 1700.0,
+            "gateway_fee": 34.0,
+            "description": "Settlement for Hardware Invoice INV-2200 (Total: 1700.0)",
+            "idempotency_key": "IDEMP_772"
+        }
+    },
+    {
+        "test_case_id": "GITHUB_3520",
+        "expected_status": "PASSED",
+        "expected_failure_type": null,
+        "record": {
+            "settlement_id": "TXN_3520",
+            "amount": 1000.0,
+            "gateway_fee": 20.0,
+            "description": "Batched Settlement for Software. INV-1725_A (Total: 500.0) and INV-1725_B (Total: 500.0)",
+            "idempotency_key": "IDEMP_3520"
+        }
+    },
+    {
+        "test_case_id": "GITHUB_370",
+        "expected_status": "PASSED",
+        "expected_failure_type": null,
+        "record": {
+            "settlement_id": "TXN_370",
+            "amount": 800.0,
+            "gateway_fee": 16.0,
+            "description": "Batched Settlement for Consulting. INV-1218_A (Total: 400.0) and INV-1218_B (Total: 400.0)",
+            "idempotency_key": "IDEMP_370"
+        }
+    },
+    {
+        "test_case_id": "GITHUB_2997",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "AMOUNT_MISMATCH",
+        "record": {
+            "settlement_id": "TXN_2997",
+            "amount": 202.0,
+            "gateway_fee": 4.0,
+            "description": "Settlement for Consulting Invoice INV-400 (Total: 200.0)",
+            "idempotency_key": "IDEMP_2997"
+        }
+    },
+    {
+        "test_case_id": "GITHUB_1721",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "AMOUNT_MISMATCH",
+        "record": {
+            "settlement_id": "TXN_1721",
+            "amount": 1010.0,
+            "gateway_fee": 20.0,
+            "description": "Settlement for Hardware Invoice INV-1500 (Total: 1000.0)",
+            "idempotency_key": "IDEMP_1721"
+        }
+    },
+    {
+        "test_case_id": "GITHUB_2430",
+        "expected_status": "PASSED",
+        "expected_failure_type": null,
+        "record": {
+            "settlement_id": "TXN_2430",
+            "amount": 1140.0,
+            "gateway_fee": 22.8,
+            "description": "Batched Settlement for Retail. INV-1143_A (Total: 570.0) and INV-1143_B (Total: 570.0)",
+            "idempotency_key": "IDEMP_2430"
+        }
+    },
+    {
+        "test_case_id": "GITHUB_616",
         "expected_status": "REJECTED",
         "expected_failure_type": "DUPLICATE_WEBHOOK",
         "record": {
-            "settlement_id": "TXN_643",
+            "settlement_id": "TXN_616",
+            "amount": 1700.0,
+            "gateway_fee": 34.0,
+            "description": "Settlement for Hardware Invoice INV-1800 (Total: 1700.0)",
+            "idempotency_key": "DUP_616"
+        }
+    },
+    {
+        "test_case_id": "GITHUB_1916",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "AMOUNT_MISMATCH",
+        "record": {
+            "settlement_id": "TXN_1916",
+            "amount": 1010.0,
+            "gateway_fee": 20.0,
+            "description": "Settlement for Consulting Invoice INV-1300 (Total: 1000.0)",
+            "idempotency_key": "IDEMP_1916"
+        }
+    },
+    {
+        "test_case_id": "GITHUB_731",
+        "expected_status": "PASSED",
+        "expected_failure_type": null,
+        "record": {
+            "settlement_id": "TXN_731",
+            "amount": 500.0,
+            "gateway_fee": 10.0,
+            "description": "Settlement for Software Invoice INV-1569 (Total: 500.0)",
+            "idempotency_key": "IDEMP_731"
+        }
+    },
+    {
+        "test_case_id": "GITHUB_3937",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "AMOUNT_MISMATCH",
+        "record": {
+            "settlement_id": "TXN_3937",
+            "amount": 732.25,
+            "gateway_fee": 14.5,
+            "description": "Settlement for Consulting Invoice INV-775 (Total: 725.0)",
+            "idempotency_key": "IDEMP_3937"
+        }
+    },
+    {
+        "test_case_id": "GITHUB_3560",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "AMOUNT_MISMATCH",
+        "record": {
+            "settlement_id": "TXN_3560",
+            "amount": 1363.5,
+            "gateway_fee": 27.0,
+            "description": "Settlement for Consulting Invoice INV-1355 (Total: 1350.0)",
+            "idempotency_key": "IDEMP_3560"
+        }
+    },
+    {
+        "test_case_id": "GITHUB_239",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "STALE_STATE",
+        "record": {
+            "settlement_id": "TXN_239",
+            "amount": 1300.0,
+            "gateway_fee": 26.0,
+            "description": "Settlement for Invoice INV-162499 (Total: 1300.0)",
+            "idempotency_key": "IDEMP_239"
+        }
+    },
+    {
+        "test_case_id": "GITHUB_799",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "MISSING_FEE",
+        "record": {
+            "settlement_id": "TXN_799",
+            "amount": 1000.0,
+            "gateway_fee": 0.0,
+            "description": "Settlement for Consulting Invoice INV-1313 (Total: 1000.0)",
+            "idempotency_key": "IDEMP_799"
+        }
+    },
+    {
+        "test_case_id": "GITHUB_1521",
+        "expected_status": "PASSED",
+        "expected_failure_type": null,
+        "record": {
+            "settlement_id": "TXN_1521",
+            "amount": 1100.0,
+            "gateway_fee": 22.0,
+            "description": "Settlement for Hardware Invoice INV-1526 (Total: 1100.0)",
+            "idempotency_key": "IDEMP_1521"
+        }
+    },
+    {
+        "test_case_id": "GITHUB_3692",
+        "expected_status": "PASSED",
+        "expected_failure_type": null,
+        "record": {
+            "settlement_id": "TXN_3692",
+            "amount": 800.0,
+            "gateway_fee": 16.0,
+            "description": "Settlement for Consulting Invoice INV-995 (Total: 800.0)",
+            "idempotency_key": "IDEMP_3692"
+        }
+    },
+    {
+        "test_case_id": "GITHUB_1119",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "MISSING_FEE",
+        "record": {
+            "settlement_id": "TXN_1119",
+            "amount": 1200.0,
+            "gateway_fee": 0.0,
+            "description": "Settlement for Consulting Invoice INV-1505 (Total: 1200.0)",
+            "idempotency_key": "IDEMP_1119"
+        }
+    },
+    {
+        "test_case_id": "GITHUB_4376",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "STALE_STATE",
+        "record": {
+            "settlement_id": "TXN_4376",
+            "amount": 600.0,
+            "gateway_fee": 12.0,
+            "description": "Settlement for Invoice INV-190499 (Total: 600.0)",
+            "idempotency_key": "IDEMP_4376"
+        }
+    },
+    {
+        "test_case_id": "GITHUB_207",
+        "expected_status": "PASSED",
+        "expected_failure_type": null,
+        "record": {
+            "settlement_id": "TXN_207",
+            "amount": 1500.0,
+            "gateway_fee": 30.0,
+            "description": "Batched Settlement for Consulting. INV-1514_A (Total: 750.0) and INV-1514_B (Total: 750.0)",
+            "idempotency_key": "IDEMP_207"
+        }
+    },
+    {
+        "test_case_id": "GITHUB_3788",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "MISSING_FEE",
+        "record": {
+            "settlement_id": "TXN_3788",
+            "amount": 500.0,
+            "gateway_fee": 0.0,
+            "description": "Settlement for Consulting Invoice INV-1636 (Total: 500.0)",
+            "idempotency_key": "IDEMP_3788"
+        }
+    },
+    {
+        "test_case_id": "GITHUB_2986",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "MISSING_FEE",
+        "record": {
+            "settlement_id": "TXN_2986",
+            "amount": 1370.0,
+            "gateway_fee": 0.0,
+            "description": "Settlement for Consulting Invoice INV-1717 (Total: 1370.0)",
+            "idempotency_key": "IDEMP_2986"
+        }
+    },
+    {
+        "test_case_id": "GITHUB_878",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "AMOUNT_MISMATCH",
+        "record": {
+            "settlement_id": "TXN_878",
+            "amount": 979.7,
+            "gateway_fee": 19.4,
+            "description": "Settlement for Retail Invoice INV-1264 (Total: 970.0)",
+            "idempotency_key": "IDEMP_878"
+        }
+    },
+    {
+        "test_case_id": "GITHUB_2254",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "DUPLICATE_WEBHOOK",
+        "record": {
+            "settlement_id": "TXN_2254",
+            "amount": 975.0,
+            "gateway_fee": 19.5,
+            "description": "Settlement for Hardware Invoice INV-1576 (Total: 975.0)",
+            "idempotency_key": "DUP_2254"
+        }
+    },
+    {
+        "test_case_id": "GITHUB_2680",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "MISSING_FEE",
+        "record": {
+            "settlement_id": "TXN_2680",
+            "amount": 1200.0,
+            "gateway_fee": 0.0,
+            "description": "Settlement for Hardware Invoice INV-1214 (Total: 1200.0)",
+            "idempotency_key": "IDEMP_2680"
+        }
+    },
+    {
+        "test_case_id": "GITHUB_1023",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "MISSING_FEE",
+        "record": {
+            "settlement_id": "TXN_1023",
+            "amount": 750.0,
+            "gateway_fee": 0.0,
+            "description": "Settlement for Consulting Invoice INV-970 (Total: 750.0)",
+            "idempotency_key": "IDEMP_1023"
+        }
+    },
+    {
+        "test_case_id": "GITHUB_284",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "DUPLICATE_WEBHOOK",
+        "record": {
+            "settlement_id": "TXN_284",
+            "amount": 1700.0,
+            "gateway_fee": 34.0,
+            "description": "Settlement for Hardware Invoice INV-1714 (Total: 1700.0)",
+            "idempotency_key": "DUP_284"
+        }
+    },
+    {
+        "test_case_id": "GITHUB_3359",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "MISSING_FEE",
+        "record": {
+            "settlement_id": "TXN_3359",
+            "amount": 1100.0,
+            "gateway_fee": 0.0,
+            "description": "Settlement for Consulting Invoice INV-1281 (Total: 1100.0)",
+            "idempotency_key": "IDEMP_3359"
+        }
+    },
+    {
+        "test_case_id": "GITHUB_693",
+        "expected_status": "PASSED",
+        "expected_failure_type": null,
+        "record": {
+            "settlement_id": "TXN_693",
+            "amount": 500.0,
+            "gateway_fee": 10.0,
+            "description": "Settlement for Consulting Invoice INV-1064 (Total: 500.0)",
+            "idempotency_key": "IDEMP_693"
+        }
+    },
+    {
+        "test_case_id": "GITHUB_1874",
+        "expected_status": "PASSED",
+        "expected_failure_type": null,
+        "record": {
+            "settlement_id": "TXN_1874",
+            "amount": 740.0,
+            "gateway_fee": 14.8,
+            "description": "Settlement for Consulting Invoice INV-2095 (Total: 740.0)",
+            "idempotency_key": "IDEMP_1874"
+        }
+    },
+    {
+        "test_case_id": "GITHUB_1047",
+        "expected_status": "PASSED",
+        "expected_failure_type": null,
+        "record": {
+            "settlement_id": "TXN_1047",
+            "amount": 1350.0,
+            "gateway_fee": 27.0,
+            "description": "Settlement for Software Invoice INV-1583 (Total: 1350.0)",
+            "idempotency_key": "IDEMP_1047"
+        }
+    },
+    {
+        "test_case_id": "GITHUB_1019",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "AMOUNT_MISMATCH",
+        "record": {
+            "settlement_id": "TXN_1019",
+            "amount": 707.0,
+            "gateway_fee": 14.0,
+            "description": "Settlement for Software Invoice INV-900 (Total: 700.0)",
+            "idempotency_key": "IDEMP_1019"
+        }
+    },
+    {
+        "test_case_id": "GITHUB_1480",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "AMOUNT_MISMATCH",
+        "record": {
+            "settlement_id": "TXN_1480",
+            "amount": 1515.0,
+            "gateway_fee": 30.0,
+            "description": "Settlement for Consulting Invoice INV-1856 (Total: 1500.0)",
+            "idempotency_key": "IDEMP_1480"
+        }
+    },
+    {
+        "test_case_id": "GITHUB_3979",
+        "expected_status": "PASSED",
+        "expected_failure_type": null,
+        "record": {
+            "settlement_id": "TXN_3979",
+            "amount": 850.0,
+            "gateway_fee": 17.0,
+            "description": "Settlement for Consulting Invoice INV-1195 (Total: 850.0)",
+            "idempotency_key": "IDEMP_3979"
+        }
+    },
+    {
+        "test_case_id": "GITHUB_3501",
+        "expected_status": "PASSED",
+        "expected_failure_type": null,
+        "record": {
+            "settlement_id": "TXN_3501",
+            "amount": 1100.0,
+            "gateway_fee": 22.0,
+            "description": "Settlement for Consulting Invoice INV-1173 (Total: 1100.0)",
+            "idempotency_key": "IDEMP_3501"
+        }
+    },
+    {
+        "test_case_id": "GITHUB_1176",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "DUPLICATE_WEBHOOK",
+        "record": {
+            "settlement_id": "TXN_1176",
+            "amount": 1000.0,
+            "gateway_fee": 20.0,
+            "description": "Settlement for Consulting Invoice INV-1093 (Total: 1000.0)",
+            "idempotency_key": "DUP_1176"
+        }
+    },
+    {
+        "test_case_id": "GITHUB_567",
+        "expected_status": "PASSED",
+        "expected_failure_type": null,
+        "record": {
+            "settlement_id": "TXN_567",
             "amount": 900.0,
             "gateway_fee": 18.0,
             "description": "Settlement for Hardware Invoice INV-900 (Total: 900.0)",
-            "idempotency_key": "DUP_643"
+            "idempotency_key": "IDEMP_567"
         }
     },
     {
-        "test_case_id": "GITHUB_2356",
+        "test_case_id": "GITHUB_219",
         "expected_status": "REJECTED",
-        "expected_failure_type": "AMOUNT_MISMATCH",
+        "expected_failure_type": "MISSING_FEE",
         "record": {
-            "settlement_id": "TXN_2356",
-            "amount": 949.0,
-            "gateway_fee": 0.0,
-            "description": "Settlement for Consulting Invoice INV-949 (Total: 949.0)",
-            "idempotency_key": "IDEMP_2356"
-        }
-    },
-    {
-        "test_case_id": "GITHUB_1625",
-        "expected_status": "PASSED",
-        "expected_failure_type": null,
-        "record": {
-            "settlement_id": "TXN_1625",
-            "amount": 800.0,
-            "gateway_fee": 16.0,
-            "description": "Settlement for Consulting Invoice INV-1210 (Total: 800.0)",
-            "idempotency_key": "IDEMP_1625"
-        }
-    },
-    {
-        "test_case_id": "GITHUB_344",
-        "expected_status": "REJECTED",
-        "expected_failure_type": "AMOUNT_MISMATCH",
-        "record": {
-            "settlement_id": "TXN_344",
-            "amount": 1100.51,
-            "gateway_fee": 22.0,
-            "description": "Settlement for Hardware Invoice INV-1294 (Total: 1100.0)",
-            "idempotency_key": "IDEMP_344"
-        }
-    },
-    {
-        "test_case_id": "GITHUB_1451",
-        "expected_status": "PASSED",
-        "expected_failure_type": null,
-        "record": {
-            "settlement_id": "TXN_1451",
+            "settlement_id": "TXN_219",
             "amount": 1100.0,
-            "gateway_fee": 22.0,
-            "description": "Settlement for Consulting Invoice INV-1150 (Total: 1100.0)",
-            "idempotency_key": "IDEMP_1451"
-        }
-    },
-    {
-        "test_case_id": "GITHUB_1839",
-        "expected_status": "REJECTED",
-        "expected_failure_type": "AMOUNT_MISMATCH",
-        "record": {
-            "settlement_id": "TXN_1839",
-            "amount": 1500.51,
-            "gateway_fee": 30.0,
-            "description": "Settlement for Consulting Invoice INV-1878 (Total: 1500.0)",
-            "idempotency_key": "IDEMP_1839"
-        }
-    },
-    {
-        "test_case_id": "GITHUB_22",
-        "expected_status": "REJECTED",
-        "expected_failure_type": "DUPLICATE_WEBHOOK",
-        "record": {
-            "settlement_id": "TXN_22",
-            "amount": 600.0,
-            "gateway_fee": 12.0,
-            "description": "Settlement for Software Invoice INV-1332 (Total: 600.0)",
-            "idempotency_key": "DUP_22"
-        }
-    },
-    {
-        "test_case_id": "GITHUB_1642",
-        "expected_status": "REJECTED",
-        "expected_failure_type": "AMOUNT_MISMATCH",
-        "record": {
-            "settlement_id": "TXN_1642",
-            "amount": 900.51,
-            "gateway_fee": 18.0,
-            "description": "Settlement for Consulting Invoice INV-1555 (Total: 900.0)",
-            "idempotency_key": "IDEMP_1642"
-        }
-    },
-    {
-        "test_case_id": "GITHUB_4098",
-        "expected_status": "REJECTED",
-        "expected_failure_type": "AMOUNT_MISMATCH",
-        "record": {
-            "settlement_id": "TXN_4098",
-            "amount": 1450.0,
             "gateway_fee": 0.0,
-            "description": "Settlement for Consulting Invoice INV-1517 (Total: 1450.0)",
-            "idempotency_key": "IDEMP_4098"
+            "description": "Settlement for Consulting Invoice INV-1100 (Total: 1100.0)",
+            "idempotency_key": "IDEMP_219"
         }
     },
     {
-        "test_case_id": "GITHUB_2667",
+        "test_case_id": "GITHUB_1017",
         "expected_status": "REJECTED",
         "expected_failure_type": "STALE_STATE",
         "record": {
-            "settlement_id": "TXN_2667",
-            "amount": 1800.0,
-            "gateway_fee": 36.0,
-            "description": "Settlement for Invoice INV-280099 (Total: 1800.0)",
-            "idempotency_key": "IDEMP_2667"
-        }
-    },
-    {
-        "test_case_id": "GITHUB_2582",
-        "expected_status": "PASSED",
-        "expected_failure_type": null,
-        "record": {
-            "settlement_id": "TXN_2582",
-            "amount": 1420.0,
-            "gateway_fee": 28.4,
-            "description": "Batched Settlement for Hardware. INV-1450_A (Total: 710.0) and INV-1450_B (Total: 710.0)",
-            "idempotency_key": "IDEMP_2582"
-        }
-    },
-    {
-        "test_case_id": "GITHUB_244",
-        "expected_status": "REJECTED",
-        "expected_failure_type": "DUPLICATE_WEBHOOK",
-        "record": {
-            "settlement_id": "TXN_244",
-            "amount": 1000.0,
-            "gateway_fee": 20.0,
-            "description": "Settlement for Hardware Invoice INV-1514 (Total: 1000.0)",
-            "idempotency_key": "DUP_244"
-        }
-    },
-    {
-        "test_case_id": "GITHUB_3254",
-        "expected_status": "REJECTED",
-        "expected_failure_type": "STALE_STATE",
-        "record": {
-            "settlement_id": "TXN_3254",
-            "amount": 1000.0,
-            "gateway_fee": 20.0,
-            "description": "Settlement for Invoice INV-139899 (Total: 1000.0)",
-            "idempotency_key": "IDEMP_3254"
-        }
-    },
-    {
-        "test_case_id": "GITHUB_3043",
-        "expected_status": "REJECTED",
-        "expected_failure_type": "AMOUNT_MISMATCH",
-        "record": {
-            "settlement_id": "TXN_3043",
-            "amount": 600.51,
-            "gateway_fee": 12.0,
-            "description": "Settlement for Software Invoice INV-700 (Total: 600.0)",
-            "idempotency_key": "IDEMP_3043"
-        }
-    },
-    {
-        "test_case_id": "GITHUB_2265",
-        "expected_status": "PASSED",
-        "expected_failure_type": null,
-        "record": {
-            "settlement_id": "TXN_2265",
-            "amount": 800.0,
-            "gateway_fee": 16.0,
-            "description": "Settlement for Consulting Invoice INV-1218 (Total: 800.0)",
-            "idempotency_key": "IDEMP_2265"
-        }
-    },
-    {
-        "test_case_id": "GITHUB_1780",
-        "expected_status": "PASSED",
-        "expected_failure_type": null,
-        "record": {
-            "settlement_id": "TXN_1780",
-            "amount": 1700.0,
-            "gateway_fee": 34.0,
-            "description": "Settlement for Consulting Invoice INV-1700 (Total: 1700.0)",
-            "idempotency_key": "IDEMP_1780"
-        }
-    },
-    {
-        "test_case_id": "GITHUB_3423",
-        "expected_status": "REJECTED",
-        "expected_failure_type": "DUPLICATE_WEBHOOK",
-        "record": {
-            "settlement_id": "TXN_3423",
-            "amount": 880.0,
-            "gateway_fee": 17.6,
-            "description": "Settlement for Software Invoice INV-940 (Total: 880.0)",
-            "idempotency_key": "DUP_3423"
-        }
-    },
-    {
-        "test_case_id": "GITHUB_24",
-        "expected_status": "PASSED",
-        "expected_failure_type": null,
-        "record": {
-            "settlement_id": "TXN_24",
-            "amount": 1350.0,
-            "gateway_fee": 27.0,
-            "description": "Settlement for Consulting Invoice INV-1357 (Total: 1350.0)",
-            "idempotency_key": "IDEMP_24"
-        }
-    },
-    {
-        "test_case_id": "GITHUB_1896",
-        "expected_status": "PASSED",
-        "expected_failure_type": null,
-        "record": {
-            "settlement_id": "TXN_1896",
-            "amount": 1250.0,
-            "gateway_fee": 25.0,
-            "description": "Settlement for Consulting Invoice INV-1500 (Total: 1250.0)",
-            "idempotency_key": "IDEMP_1896"
-        }
-    },
-    {
-        "test_case_id": "GITHUB_2634",
-        "expected_status": "REJECTED",
-        "expected_failure_type": "STALE_STATE",
-        "record": {
-            "settlement_id": "TXN_2634",
-            "amount": 1200.0,
-            "gateway_fee": 24.0,
-            "description": "Settlement for Invoice INV-161999 (Total: 1200.0)",
-            "idempotency_key": "IDEMP_2634"
-        }
-    },
-    {
-        "test_case_id": "GITHUB_1827",
-        "expected_status": "REJECTED",
-        "expected_failure_type": "DUPLICATE_WEBHOOK",
-        "record": {
-            "settlement_id": "TXN_1827",
-            "amount": 1650.0,
-            "gateway_fee": 33.0,
-            "description": "Settlement for Consulting Invoice INV-1816 (Total: 1650.0)",
-            "idempotency_key": "DUP_1827"
-        }
-    },
-    {
-        "test_case_id": "GITHUB_620",
-        "expected_status": "REJECTED",
-        "expected_failure_type": "DUPLICATE_WEBHOOK",
-        "record": {
-            "settlement_id": "TXN_620",
+            "settlement_id": "TXN_1017",
             "amount": 850.0,
             "gateway_fee": 17.0,
-            "description": "Settlement for Consulting Invoice INV-1100 (Total: 850.0)",
-            "idempotency_key": "DUP_620"
+            "description": "Settlement for Invoice INV-98999 (Total: 850.0)",
+            "idempotency_key": "IDEMP_1017"
         }
     },
     {
-        "test_case_id": "GITHUB_2325",
-        "expected_status": "PASSED",
-        "expected_failure_type": null,
-        "record": {
-            "settlement_id": "TXN_2325",
-            "amount": 1200.0,
-            "gateway_fee": 24.0,
-            "description": "Settlement for Consulting Invoice INV-1952 (Total: 1200.0)",
-            "idempotency_key": "IDEMP_2325"
-        }
-    },
-    {
-        "test_case_id": "GITHUB_431",
+        "test_case_id": "GITHUB_1749",
         "expected_status": "REJECTED",
         "expected_failure_type": "DUPLICATE_WEBHOOK",
         "record": {
-            "settlement_id": "TXN_431",
-            "amount": 1200.0,
-            "gateway_fee": 24.0,
-            "description": "Settlement for Consulting Invoice INV-1420 (Total: 1200.0)",
-            "idempotency_key": "DUP_431"
-        }
-    },
-    {
-        "test_case_id": "GITHUB_911",
-        "expected_status": "REJECTED",
-        "expected_failure_type": "AMOUNT_MISMATCH",
-        "record": {
-            "settlement_id": "TXN_911",
-            "amount": 1000.51,
+            "settlement_id": "TXN_1749",
+            "amount": 1000.0,
             "gateway_fee": 20.0,
-            "description": "Settlement for Freelance Invoice INV-1449 (Total: 1000.0)",
-            "idempotency_key": "IDEMP_911"
+            "description": "Settlement for Software Invoice INV-1142 (Total: 1000.0)",
+            "idempotency_key": "DUP_1749"
         }
     },
     {
-        "test_case_id": "GITHUB_2978",
-        "expected_status": "REJECTED",
-        "expected_failure_type": "AMOUNT_MISMATCH",
-        "record": {
-            "settlement_id": "TXN_2978",
-            "amount": 2300.51,
-            "gateway_fee": 46.0,
-            "description": "Settlement for Hardware Invoice INV-3295 (Total: 2300.0)",
-            "idempotency_key": "IDEMP_2978"
-        }
-    },
-    {
-        "test_case_id": "GITHUB_1206",
-        "expected_status": "REJECTED",
-        "expected_failure_type": "AMOUNT_MISMATCH",
-        "record": {
-            "settlement_id": "TXN_1206",
-            "amount": 800.0,
-            "gateway_fee": 0.0,
-            "description": "Settlement for Consulting Invoice INV-1137 (Total: 800.0)",
-            "idempotency_key": "IDEMP_1206"
-        }
-    },
-    {
-        "test_case_id": "GITHUB_851",
-        "expected_status": "REJECTED",
-        "expected_failure_type": "AMOUNT_MISMATCH",
-        "record": {
-            "settlement_id": "TXN_851",
-            "amount": 1000.51,
-            "gateway_fee": 20.0,
-            "description": "Settlement for Consulting Invoice INV-1556 (Total: 1000.0)",
-            "idempotency_key": "IDEMP_851"
-        }
-    },
-    {
-        "test_case_id": "GITHUB_3736",
+        "test_case_id": "GITHUB_2127",
         "expected_status": "REJECTED",
         "expected_failure_type": "STALE_STATE",
         "record": {
-            "settlement_id": "TXN_3736",
-            "amount": 2000.0,
-            "gateway_fee": 40.0,
-            "description": "Settlement for Invoice INV-224099 (Total: 2000.0)",
-            "idempotency_key": "IDEMP_3736"
+            "settlement_id": "TXN_2127",
+            "amount": 850.0,
+            "gateway_fee": 17.0,
+            "description": "Settlement for Invoice INV-134499 (Total: 850.0)",
+            "idempotency_key": "IDEMP_2127"
         }
     },
     {
-        "test_case_id": "GITHUB_3898",
-        "expected_status": "REJECTED",
-        "expected_failure_type": "AMOUNT_MISMATCH",
-        "record": {
-            "settlement_id": "TXN_3898",
-            "amount": 2200.51,
-            "gateway_fee": 44.0,
-            "description": "Settlement for Consulting Invoice INV-2433 (Total: 2200.0)",
-            "idempotency_key": "IDEMP_3898"
-        }
-    },
-    {
-        "test_case_id": "GITHUB_77",
-        "expected_status": "REJECTED",
-        "expected_failure_type": "AMOUNT_MISMATCH",
-        "record": {
-            "settlement_id": "TXN_77",
-            "amount": 900.0,
-            "gateway_fee": 0.0,
-            "description": "Settlement for Retail Invoice INV-1100 (Total: 900.0)",
-            "idempotency_key": "IDEMP_77"
-        }
-    },
-    {
-        "test_case_id": "GITHUB_1211",
-        "expected_status": "PASSED",
-        "expected_failure_type": null,
-        "record": {
-            "settlement_id": "TXN_1211",
-            "amount": 1100.0,
-            "gateway_fee": 22.0,
-            "description": "Settlement for Consulting Invoice INV-1477 (Total: 1100.0)",
-            "idempotency_key": "IDEMP_1211"
-        }
-    },
-    {
-        "test_case_id": "GITHUB_544",
-        "expected_status": "REJECTED",
-        "expected_failure_type": "AMOUNT_MISMATCH",
-        "record": {
-            "settlement_id": "TXN_544",
-            "amount": 1500.0,
-            "gateway_fee": 0.0,
-            "description": "Settlement for Consulting Invoice INV-2195 (Total: 1500.0)",
-            "idempotency_key": "IDEMP_544"
-        }
-    },
-    {
-        "test_case_id": "GITHUB_2854",
-        "expected_status": "REJECTED",
-        "expected_failure_type": "DUPLICATE_WEBHOOK",
-        "record": {
-            "settlement_id": "TXN_2854",
-            "amount": 960.0,
-            "gateway_fee": 19.2,
-            "description": "Settlement for Consulting Invoice INV-1031 (Total: 960.0)",
-            "idempotency_key": "DUP_2854"
-        }
-    },
-    {
-        "test_case_id": "GITHUB_2532",
-        "expected_status": "PASSED",
-        "expected_failure_type": null,
-        "record": {
-            "settlement_id": "TXN_2532",
-            "amount": 900.0,
-            "gateway_fee": 18.0,
-            "description": "Batched Settlement for Hardware. INV-1300_A (Total: 450.0) and INV-1300_B (Total: 450.0)",
-            "idempotency_key": "IDEMP_2532"
-        }
-    },
-    {
-        "test_case_id": "GITHUB_861",
-        "expected_status": "REJECTED",
-        "expected_failure_type": "DUPLICATE_WEBHOOK",
-        "record": {
-            "settlement_id": "TXN_861",
-            "amount": 1100.0,
-            "gateway_fee": 22.0,
-            "description": "Settlement for Consulting Invoice INV-1369 (Total: 1100.0)",
-            "idempotency_key": "DUP_861"
-        }
-    },
-    {
-        "test_case_id": "GITHUB_1143",
-        "expected_status": "REJECTED",
-        "expected_failure_type": "AMOUNT_MISMATCH",
-        "record": {
-            "settlement_id": "TXN_1143",
-            "amount": 300.0,
-            "gateway_fee": 0.0,
-            "description": "Settlement for Consulting Invoice INV-550 (Total: 300.0)",
-            "idempotency_key": "IDEMP_1143"
-        }
-    },
-    {
-        "test_case_id": "GITHUB_2969",
+        "test_case_id": "GITHUB_2497",
         "expected_status": "REJECTED",
         "expected_failure_type": "STALE_STATE",
         "record": {
-            "settlement_id": "TXN_2969",
-            "amount": 1000.0,
-            "gateway_fee": 20.0,
-            "description": "Settlement for Invoice INV-153099 (Total: 1000.0)",
-            "idempotency_key": "IDEMP_2969"
-        }
-    },
-    {
-        "test_case_id": "GITHUB_2434",
-        "expected_status": "REJECTED",
-        "expected_failure_type": "AMOUNT_MISMATCH",
-        "record": {
-            "settlement_id": "TXN_2434",
-            "amount": 1000.0,
-            "gateway_fee": 0.0,
-            "description": "Settlement for Consulting Invoice INV-1200 (Total: 1000.0)",
-            "idempotency_key": "IDEMP_2434"
-        }
-    },
-    {
-        "test_case_id": "GITHUB_805",
-        "expected_status": "PASSED",
-        "expected_failure_type": null,
-        "record": {
-            "settlement_id": "TXN_805",
-            "amount": 950.0,
-            "gateway_fee": 19.0,
-            "description": "Batched Settlement for Retail. INV-1265_A (Total: 475.0) and INV-1265_B (Total: 475.0)",
-            "idempotency_key": "IDEMP_805"
-        }
-    },
-    {
-        "test_case_id": "GITHUB_1710",
-        "expected_status": "PASSED",
-        "expected_failure_type": null,
-        "record": {
-            "settlement_id": "TXN_1710",
-            "amount": 1000.0,
-            "gateway_fee": 20.0,
-            "description": "Settlement for Consulting Invoice INV-1294 (Total: 1000.0)",
-            "idempotency_key": "IDEMP_1710"
-        }
-    },
-    {
-        "test_case_id": "GITHUB_1126",
-        "expected_status": "PASSED",
-        "expected_failure_type": null,
-        "record": {
-            "settlement_id": "TXN_1126",
-            "amount": 860.0,
-            "gateway_fee": 17.2,
-            "description": "Batched Settlement for Hardware. INV-970_A (Total: 430.0) and INV-970_B (Total: 430.0)",
-            "idempotency_key": "IDEMP_1126"
-        }
-    },
-    {
-        "test_case_id": "GITHUB_888",
-        "expected_status": "PASSED",
-        "expected_failure_type": null,
-        "record": {
-            "settlement_id": "TXN_888",
-            "amount": 2400.0,
-            "gateway_fee": 48.0,
-            "description": "Batched Settlement for Hardware. INV-2800_A (Total: 1200.0) and INV-2800_B (Total: 1200.0)",
-            "idempotency_key": "IDEMP_888"
-        }
-    },
-    {
-        "test_case_id": "GITHUB_3973",
-        "expected_status": "REJECTED",
-        "expected_failure_type": "AMOUNT_MISMATCH",
-        "record": {
-            "settlement_id": "TXN_3973",
-            "amount": 1100.51,
+            "settlement_id": "TXN_2497",
+            "amount": 1100.0,
             "gateway_fee": 22.0,
-            "description": "Settlement for Software Invoice INV-1131 (Total: 1100.0)",
-            "idempotency_key": "IDEMP_3973"
+            "description": "Settlement for Invoice INV-113999 (Total: 1100.0)",
+            "idempotency_key": "IDEMP_2497"
         }
     },
     {
-        "test_case_id": "GITHUB_1454",
+        "test_case_id": "GITHUB_650",
+        "expected_status": "PASSED",
+        "expected_failure_type": null,
+        "record": {
+            "settlement_id": "TXN_650",
+            "amount": 1950.0,
+            "gateway_fee": 39.0,
+            "description": "Settlement for Consulting Invoice INV-2134 (Total: 1950.0)",
+            "idempotency_key": "IDEMP_650"
+        }
+    },
+    {
+        "test_case_id": "GITHUB_2181",
+        "expected_status": "PASSED",
+        "expected_failure_type": null,
+        "record": {
+            "settlement_id": "TXN_2181",
+            "amount": 1000.0,
+            "gateway_fee": 20.0,
+            "description": "Batched Settlement for Retail. INV-1590_A (Total: 500.0) and INV-1590_B (Total: 500.0)",
+            "idempotency_key": "IDEMP_2181"
+        }
+    },
+    {
+        "test_case_id": "GITHUB_834",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "MISSING_FEE",
+        "record": {
+            "settlement_id": "TXN_834",
+            "amount": 250.0,
+            "gateway_fee": 0.0,
+            "description": "Settlement for Consulting Invoice INV-1035 (Total: 250.0)",
+            "idempotency_key": "IDEMP_834"
+        }
+    },
+    {
+        "test_case_id": "GITHUB_1950",
+        "expected_status": "PASSED",
+        "expected_failure_type": null,
+        "record": {
+            "settlement_id": "TXN_1950",
+            "amount": 600.0,
+            "gateway_fee": 12.0,
+            "description": "Settlement for Consulting Invoice INV-1850 (Total: 600.0)",
+            "idempotency_key": "IDEMP_1950"
+        }
+    },
+    {
+        "test_case_id": "GITHUB_1227",
         "expected_status": "REJECTED",
         "expected_failure_type": "DUPLICATE_WEBHOOK",
         "record": {
-            "settlement_id": "TXN_1454",
-            "amount": 1550.0,
-            "gateway_fee": 31.0,
-            "description": "Settlement for Consulting Invoice INV-1721 (Total: 1550.0)",
-            "idempotency_key": "DUP_1454"
+            "settlement_id": "TXN_1227",
+            "amount": 500.0,
+            "gateway_fee": 10.0,
+            "description": "Settlement for Consulting Invoice INV-1732 (Total: 500.0)",
+            "idempotency_key": "DUP_1227"
         }
     },
     {
-        "test_case_id": "GITHUB_2179",
+        "test_case_id": "GITHUB_3360",
         "expected_status": "REJECTED",
-        "expected_failure_type": "AMOUNT_MISMATCH",
+        "expected_failure_type": "DUPLICATE_WEBHOOK",
         "record": {
-            "settlement_id": "TXN_2179",
-            "amount": 910.0,
-            "gateway_fee": 0.0,
-            "description": "Settlement for Consulting Invoice INV-1128 (Total: 910.0)",
-            "idempotency_key": "IDEMP_2179"
+            "settlement_id": "TXN_3360",
+            "amount": 1100.0,
+            "gateway_fee": 22.0,
+            "description": "Settlement for Consulting Invoice INV-1100 (Total: 1100.0)",
+            "idempotency_key": "DUP_3360"
+        }
+    },
+    {
+        "test_case_id": "GITHUB_2482",
+        "expected_status": "REJECTED",
+        "expected_failure_type": "STALE_STATE",
+        "record": {
+            "settlement_id": "TXN_2482",
+            "amount": 700.0,
+            "gateway_fee": 14.0,
+            "description": "Settlement for Invoice INV-94099 (Total: 700.0)",
+            "idempotency_key": "IDEMP_2482"
         }
     }
 ]

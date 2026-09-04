@@ -29,7 +29,7 @@ def event_loop():
 @pytest.mark.parametrize("test_case", all_cases, ids=lambda x: f"{x['_dataset']}-{x['test_case_id']}")
 async def test_evaluation(test_case):
     engine = RulesEngine()
-    redis_client = await engine.get_redis()
+    redis_client = await engine._get_redis()
     await redis_client.flushall()
     try:
         record_data = test_case["record"]

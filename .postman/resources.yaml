@@ -1,0 +1,11 @@
+# Use this workspace to collaborate
+workspace:
+  id: 7dd58a1a-d7ea-4103-8dfc-6805237eb10e
+
+localResources:
+  collections:
+    - ../Razorpay_Live_Demo.postman_collection.json
+
+cloudResources:
+  collections:
+    ../postman/collections/Razorpay AI Finance Controller Demo: 96ee8936-0b91-4463-a12a-dd5104818cb2

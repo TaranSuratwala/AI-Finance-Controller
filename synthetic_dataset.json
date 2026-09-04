@@ -16,10 +16,10 @@
         "expected_failure_type": "AMOUNT_MISMATCH",
         "record": {
             "settlement_id": "SETT_1002",
-            "amount": 980.51,
+            "amount": 990.51,
             "gateway_fee": 0.0,
             "description": "INV-102 (Total: 980.0)",
-            "idempotency_key": "IDEMP_AMT_01"
+            "idempotency_key": "IDEMP_2"
         }
     },
     {
@@ -59,13 +59,13 @@
     },
     {
         "test_case_id": "SYNTH_000",
-        "expected_status": "REJECTED",
-        "expected_failure_type": "AMOUNT_MISMATCH",
+        "expected_status": "PASSED",
+        "expected_failure_type": null,
         "record": {
             "settlement_id": "SETT_SYNTH_000",
-            "amount": 4212.18,
-            "gateway_fee": 84.23,
-            "description": "settlement INV-200 (Total: 4211.58)"
+            "amount": 2713.92,
+            "gateway_fee": 54.28,
+            "description": "INV-200 payment (Total: 2713.92)"
         }
     },
     {
@@ -74,53 +74,53 @@
         "expected_failure_type": null,
         "record": {
             "settlement_id": "SETT_SYNTH_001",
-            "amount": 970.04,
-            "gateway_fee": 19.4,
-            "description": "INV-201 and others (Total: 970.04)"
+            "amount": 3301.49,
+            "gateway_fee": 66.03,
+            "description": "INV-201 and others (Total: 3301.49)"
         }
     },
     {
         "test_case_id": "SYNTH_002",
-        "expected_status": "PASSED",
-        "expected_failure_type": null,
+        "expected_status": "REJECTED",
+        "expected_failure_type": "STALE_STATE",
         "record": {
             "settlement_id": "SETT_SYNTH_002",
-            "amount": 3816.63,
-            "gateway_fee": 76.33,
-            "description": "settlement INV-202 (Total: 3816.63)"
+            "amount": 4953.25,
+            "gateway_fee": 99.06,
+            "description": "INV-20299 and others (Total: 4953.25)"
         }
     },
     {
         "test_case_id": "SYNTH_003",
         "expected_status": "REJECTED",
-        "expected_failure_type": "AMOUNT_MISMATCH",
+        "expected_failure_type": "STALE_STATE",
         "record": {
             "settlement_id": "SETT_SYNTH_003",
-            "amount": 199.91,
-            "gateway_fee": 3.99,
-            "description": "INV-203 payment (Total: 199.31)"
+            "amount": 4281.07,
+            "gateway_fee": 85.62,
+            "description": "INV-20399 payment (Total: 4281.07)"
         }
     },
     {
         "test_case_id": "SYNTH_004",
-        "expected_status": "REJECTED",
-        "expected_failure_type": "AMOUNT_MISMATCH",
+        "expected_status": "PASSED",
+        "expected_failure_type": null,
         "record": {
             "settlement_id": "SETT_SYNTH_004",
-            "amount": 1359.89,
-            "gateway_fee": 27.19,
-            "description": "messy description || INV-204 ## (Total: 1359.29)"
+            "amount": 2369.93,
+            "gateway_fee": 47.4,
+            "description": "INV-204 payment (Total: 2369.93)"
         }
     },
     {
         "test_case_id": "SYNTH_005",
-        "expected_status": "PASSED",
-        "expected_failure_type": null,
+        "expected_status": "REJECTED",
+        "expected_failure_type": "AMOUNT_MISMATCH",
         "record": {
             "settlement_id": "SETT_SYNTH_005",
-            "amount": 1608.6,
-            "gateway_fee": 32.17,
-            "description": "messy description || INV-205 ## (Total: 1608.6)"
+            "amount": 1916.32,
+            "gateway_fee": 37.95,
+            "description": "INV-205 payment (Total: 1897.35)"
         }
     },
     {
@@ -129,9 +129,9 @@
         "expected_failure_type": "AMOUNT_MISMATCH",
         "record": {
             "settlement_id": "SETT_SYNTH_006",
-            "amount": 3937.4,
-            "gateway_fee": 78.74,
-            "description": "settlement INV-20699 (Total: 3936.8)"
+            "amount": 3806.98,
+            "gateway_fee": 75.39,
+            "description": "settlement INV-206 (Total: 3769.29)"
         }
     },
     {
@@ -140,9 +140,9 @@
         "expected_failure_type": null,
         "record": {
             "settlement_id": "SETT_SYNTH_007",
-            "amount": 649.17,
-            "gateway_fee": 12.98,
-            "description": "settlement INV-207 (Total: 649.17)"
+            "amount": 2107.14,
+            "gateway_fee": 42.14,
+            "description": "settlement INV-207 (Total: 2107.14)"
         }
     },
     {
@@ -151,9 +151,9 @@
         "expected_failure_type": "AMOUNT_MISMATCH",
         "record": {
             "settlement_id": "SETT_SYNTH_008",
-            "amount": 1062.03,
-            "gateway_fee": 21.23,
-            "description": "INV-20899 payment (Total: 1061.43)"
+            "amount": 5023.74,
+            "gateway_fee": 99.48,
+            "description": "settlement INV-20899 (Total: 4974.0)"
         }
     },
     {
@@ -162,20 +162,20 @@
         "expected_failure_type": null,
         "record": {
             "settlement_id": "SETT_SYNTH_009",
-            "amount": 4924.46,
-            "gateway_fee": 98.49,
-            "description": "INV-209 and others (Total: 4924.46)"
+            "amount": 3163.99,
+            "gateway_fee": 63.28,
+            "description": "settlement INV-209 (Total: 3163.99)"
         }
     },
     {
         "test_case_id": "SYNTH_010",
-        "expected_status": "PASSED",
-        "expected_failure_type": null,
+        "expected_status": "REJECTED",
+        "expected_failure_type": "AMOUNT_MISMATCH",
         "record": {
             "settlement_id": "SETT_SYNTH_010",
-            "amount": 1416.43,
-            "gateway_fee": 28.33,
-            "description": "settlement INV-210 (Total: 1416.43)"
+            "amount": 3350.21,
+            "gateway_fee": 66.34,
+            "description": "messy description || INV-210 ## (Total: 3317.04)"
         }
     },
     {
@@ -184,42 +184,42 @@
         "expected_failure_type": null,
         "record": {
             "settlement_id": "SETT_SYNTH_011",
-            "amount": 1452.3,
-            "gateway_fee": 29.05,
-            "description": "settlement INV-211 (Total: 1452.3)"
+            "amount": 3708.31,
+            "gateway_fee": 74.17,
+            "description": "messy description || INV-211 ## (Total: 3708.31)"
         }
     },
     {
         "test_case_id": "SYNTH_012",
-        "expected_status": "PASSED",
-        "expected_failure_type": null,
+        "expected_status": "REJECTED",
+        "expected_failure_type": "AMOUNT_MISMATCH",
         "record": {
             "settlement_id": "SETT_SYNTH_012",
-            "amount": 2260.68,
-            "gateway_fee": 45.21,
-            "description": "settlement INV-212 (Total: 2260.68)"
+            "amount": 3869.88,
+            "gateway_fee": 76.63,
+            "description": "messy description || INV-212 ## (Total: 3831.56)"
         }
     },
     {
         "test_case_id": "SYNTH_013",
-        "expected_status": "PASSED",
-        "expected_failure_type": null,
+        "expected_status": "REJECTED",
+        "expected_failure_type": "STALE_STATE",
         "record": {
             "settlement_id": "SETT_SYNTH_013",
-            "amount": 3657.76,
-            "gateway_fee": 73.16,
-            "description": "settlement INV-213 (Total: 3657.76)"
+            "amount": 2570.91,
+            "gateway_fee": 51.42,
+            "description": "messy description || INV-21399 ## (Total: 2570.91)"
         }
     },
     {
         "test_case_id": "SYNTH_014",
-        "expected_status": "PASSED",
-        "expected_failure_type": null,
+        "expected_status": "REJECTED",
+        "expected_failure_type": "STALE_STATE",
         "record": {
             "settlement_id": "SETT_SYNTH_014",
-            "amount": 174.44,
-            "gateway_fee": 3.49,
-            "description": "messy description || INV-214 ## (Total: 174.44)"
+            "amount": 2195.43,
+            "gateway_fee": 43.91,
+            "description": "INV-21499 and others (Total: 2195.43)"
         }
     },
     {
@@ -228,9 +228,9 @@
         "expected_failure_type": "AMOUNT_MISMATCH",
         "record": {
             "settlement_id": "SETT_SYNTH_015",
-            "amount": 2472.97,
-            "gateway_fee": 49.45,
-            "description": "messy description || INV-21599 ## (Total: 2472.37)"
+            "amount": 1141.7,
+            "gateway_fee": 22.61,
+            "description": "messy description || INV-21599 ## (Total: 1130.4)"
         }
     },
     {
@@ -239,31 +239,31 @@
         "expected_failure_type": null,
         "record": {
             "settlement_id": "SETT_SYNTH_016",
-            "amount": 731.51,
-            "gateway_fee": 14.63,
-            "description": "messy description || INV-216 ## (Total: 731.51)"
+            "amount": 2174.05,
+            "gateway_fee": 43.48,
+            "description": "settlement INV-216 (Total: 2174.05)"
         }
     },
     {
         "test_case_id": "SYNTH_017",
-        "expected_status": "REJECTED",
-        "expected_failure_type": "AMOUNT_MISMATCH",
+        "expected_status": "PASSED",
+        "expected_failure_type": null,
         "record": {
             "settlement_id": "SETT_SYNTH_017",
-            "amount": 2545.37,
-            "gateway_fee": 50.9,
-            "description": "INV-21799 payment (Total: 2544.77)"
+            "amount": 1823.39,
+            "gateway_fee": 36.47,
+            "description": "settlement INV-217 (Total: 1823.39)"
         }
     },
     {
         "test_case_id": "SYNTH_018",
-        "expected_status": "PASSED",
-        "expected_failure_type": null,
+        "expected_status": "REJECTED",
+        "expected_failure_type": "STALE_STATE",
         "record": {
             "settlement_id": "SETT_SYNTH_018",
-            "amount": 4466.56,
-            "gateway_fee": 89.33,
-            "description": "INV-218 payment (Total: 4466.56)"
+            "amount": 379.83,
+            "gateway_fee": 7.6,
+            "description": "messy description || INV-21899 ## (Total: 379.83)"
         }
     },
     {
@@ -272,9 +272,9 @@
         "expected_failure_type": "AMOUNT_MISMATCH",
         "record": {
             "settlement_id": "SETT_SYNTH_019",
-            "amount": 985.75,
-            "gateway_fee": 19.7,
-            "description": "INV-219 payment (Total: 985.15)"
+            "amount": 1201.57,
+            "gateway_fee": 23.79,
+            "description": "settlement INV-21999 (Total: 1189.67)"
         }
     },
     {
@@ -283,31 +283,31 @@
         "expected_failure_type": "AMOUNT_MISMATCH",
         "record": {
             "settlement_id": "SETT_SYNTH_020",
-            "amount": 1530.52,
-            "gateway_fee": 30.6,
-            "description": "settlement INV-22099 (Total: 1529.92)"
+            "amount": 3384.38,
+            "gateway_fee": 67.02,
+            "description": "INV-220 and others (Total: 3350.87)"
         }
     },
     {
         "test_case_id": "SYNTH_021",
-        "expected_status": "PASSED",
-        "expected_failure_type": null,
+        "expected_status": "REJECTED",
+        "expected_failure_type": "AMOUNT_MISMATCH",
         "record": {
             "settlement_id": "SETT_SYNTH_021",
-            "amount": 4770.75,
-            "gateway_fee": 95.42,
-            "description": "settlement INV-221 (Total: 4770.75)"
+            "amount": 3361.88,
+            "gateway_fee": 66.57,
+            "description": "settlement INV-221 (Total: 3328.59)"
         }
     },
     {
         "test_case_id": "SYNTH_022",
-        "expected_status": "REJECTED",
-        "expected_failure_type": "AMOUNT_MISMATCH",
+        "expected_status": "PASSED",
+        "expected_failure_type": null,
         "record": {
             "settlement_id": "SETT_SYNTH_022",
-            "amount": 3488.53,
-            "gateway_fee": 69.76,
-            "description": "INV-222 payment (Total: 3487.93)"
+            "amount": 3075.67,
+            "gateway_fee": 61.51,
+            "description": "INV-222 and others (Total: 3075.67)"
         }
     },
     {
@@ -316,42 +316,42 @@
         "expected_failure_type": "AMOUNT_MISMATCH",
         "record": {
             "settlement_id": "SETT_SYNTH_023",
-            "amount": 2239.91,
-            "gateway_fee": 44.79,
-            "description": "INV-223 and others (Total: 2239.31)"
+            "amount": 1393.02,
+            "gateway_fee": 27.58,
+            "description": "INV-223 payment (Total: 1379.23)"
         }
     },
     {
         "test_case_id": "SYNTH_024",
         "expected_status": "REJECTED",
-        "expected_failure_type": "STALE_STATE",
+        "expected_failure_type": "AMOUNT_MISMATCH",
         "record": {
             "settlement_id": "SETT_SYNTH_024",
-            "amount": 1297.53,
-            "gateway_fee": 25.95,
-            "description": "messy description || INV-22499 ## (Total: 1297.53)"
+            "amount": 1512.5,
+            "gateway_fee": 29.95,
+            "description": "settlement INV-224 (Total: 1497.52)"
         }
     },
     {
         "test_case_id": "SYNTH_025",
-        "expected_status": "PASSED",
-        "expected_failure_type": null,
+        "expected_status": "REJECTED",
+        "expected_failure_type": "AMOUNT_MISMATCH",
         "record": {
             "settlement_id": "SETT_SYNTH_025",
-            "amount": 4033.21,
-            "gateway_fee": 80.66,
-            "description": "INV-225 payment (Total: 4033.21)"
+            "amount": 1031.99,
+            "gateway_fee": 20.44,
+            "description": "INV-225 and others (Total: 1021.7699999999999)"
         }
     },
     {
         "test_case_id": "SYNTH_026",
-        "expected_status": "REJECTED",
-        "expected_failure_type": "AMOUNT_MISMATCH",
+        "expected_status": "PASSED",
+        "expected_failure_type": null,
         "record": {
             "settlement_id": "SETT_SYNTH_026",
-            "amount": 4198.08,
-            "gateway_fee": 83.95,
-            "description": "INV-226 payment (Total: 4197.48)"
+            "amount": 4084.09,
+            "gateway_fee": 81.68,
+            "description": "INV-226 and others (Total: 4084.09)"
         }
     },
     {
@@ -360,20 +360,20 @@
         "expected_failure_type": null,
         "record": {
             "settlement_id": "SETT_SYNTH_027",
-            "amount": 804.21,
-            "gateway_fee": 16.08,
-            "description": "INV-227 and others (Total: 804.21)"
+            "amount": 3920.38,
+            "gateway_fee": 78.41,
+            "description": "INV-227 payment (Total: 3920.38)"
         }
     },
     {
         "test_case_id": "SYNTH_028",
-        "expected_status": "REJECTED",
-        "expected_failure_type": "AMOUNT_MISMATCH",
+        "expected_status": "PASSED",
+        "expected_failure_type": null,
         "record": {
             "settlement_id": "SETT_SYNTH_028",
-            "amount": 631.35,
-            "gateway_fee": 12.62,
-            "description": "messy description || INV-22899 ## (Total: 630.75)"
+            "amount": 3684.86,
+            "gateway_fee": 73.7,
+            "description": "messy description || INV-228 ## (Total: 3684.86)"
         }
     },
     {
@@ -382,75 +382,75 @@
         "expected_failure_type": null,
         "record": {
             "settlement_id": "SETT_SYNTH_029",
-            "amount": 4457.25,
-            "gateway_fee": 89.14,
-            "description": "settlement INV-229 (Total: 4457.25)"
+            "amount": 2542.91,
+            "gateway_fee": 50.86,
+            "description": "INV-229 payment (Total: 2542.91)"
         }
     },
     {
         "test_case_id": "SYNTH_030",
-        "expected_status": "REJECTED",
-        "expected_failure_type": "AMOUNT_MISMATCH",
+        "expected_status": "PASSED",
+        "expected_failure_type": null,
         "record": {
             "settlement_id": "SETT_SYNTH_030",
-            "amount": 3392.57,
-            "gateway_fee": 67.84,
-            "description": "settlement INV-230 (Total: 3391.97)"
+            "amount": 4918.4,
+            "gateway_fee": 98.37,
+            "description": "INV-230 payment (Total: 4918.4)"
         }
     },
     {
         "test_case_id": "SYNTH_031",
         "expected_status": "REJECTED",
-        "expected_failure_type": "AMOUNT_MISMATCH",
+        "expected_failure_type": "STALE_STATE",
         "record": {
             "settlement_id": "SETT_SYNTH_031",
-            "amount": 1625.76,
-            "gateway_fee": 32.5,
-            "description": "INV-231 payment (Total: 1625.16)"
+            "amount": 4875.49,
+            "gateway_fee": 97.51,
+            "description": "INV-23199 and others (Total: 4875.49)"
         }
     },
     {
         "test_case_id": "SYNTH_032",
-        "expected_status": "PASSED",
-        "expected_failure_type": null,
+        "expected_status": "REJECTED",
+        "expected_failure_type": "STALE_STATE",
         "record": {
             "settlement_id": "SETT_SYNTH_032",
-            "amount": 1511.36,
-            "gateway_fee": 30.23,
-            "description": "INV-232 payment (Total: 1511.36)"
+            "amount": 3064.46,
+            "gateway_fee": 61.29,
+            "description": "INV-23299 payment (Total: 3064.46)"
         }
     },
     {
         "test_case_id": "SYNTH_033",
         "expected_status": "REJECTED",
-        "expected_failure_type": "STALE_STATE",
+        "expected_failure_type": "AMOUNT_MISMATCH",
         "record": {
             "settlement_id": "SETT_SYNTH_033",
-            "amount": 1476.71,
-            "gateway_fee": 29.53,
-            "description": "settlement INV-23399 (Total: 1476.71)"
+            "amount": 3084.95,
+            "gateway_fee": 61.09,
+            "description": "INV-233 and others (Total: 3054.41)"
         }
     },
     {
         "test_case_id": "SYNTH_034",
-        "expected_status": "REJECTED",
-        "expected_failure_type": "STALE_STATE",
+        "expected_status": "PASSED",
+        "expected_failure_type": null,
         "record": {
             "settlement_id": "SETT_SYNTH_034",
-            "amount": 2748.74,
-            "gateway_fee": 54.97,
-            "description": "messy description || INV-23499 ## (Total: 2748.74)"
+            "amount": 2515.16,
+            "gateway_fee": 50.3,
+            "description": "messy description || INV-234 ## (Total: 2515.16)"
         }
     },
     {
         "test_case_id": "SYNTH_035",
-        "expected_status": "REJECTED",
-        "expected_failure_type": "AMOUNT_MISMATCH",
+        "expected_status": "PASSED",
+        "expected_failure_type": null,
         "record": {
             "settlement_id": "SETT_SYNTH_035",
-            "amount": 3194.2,
-            "gateway_fee": 63.87,
-            "description": "settlement INV-23599 (Total: 3193.6)"
+            "amount": 2933.51,
+            "gateway_fee": 58.67,
+            "description": "INV-235 and others (Total: 2933.51)"
         }
     },
     {
@@ -459,20 +459,20 @@
         "expected_failure_type": null,
         "record": {
             "settlement_id": "SETT_SYNTH_036",
-            "amount": 2768.95,
-            "gateway_fee": 55.38,
-            "description": "settlement INV-236 (Total: 2768.95)"
+            "amount": 2325.78,
+            "gateway_fee": 46.52,
+            "description": "INV-236 payment (Total: 2325.78)"
         }
     },
     {
         "test_case_id": "SYNTH_037",
-        "expected_status": "REJECTED",
-        "expected_failure_type": "STALE_STATE",
+        "expected_status": "PASSED",
+        "expected_failure_type": null,
         "record": {
             "settlement_id": "SETT_SYNTH_037",
-            "amount": 3859.03,
-            "gateway_fee": 77.18,
-            "description": "messy description || INV-23799 ## (Total: 3859.03)"
+            "amount": 2472.7,
+            "gateway_fee": 49.45,
+            "description": "INV-237 payment (Total: 2472.7)"
         }
     },
     {
@@ -481,20 +481,20 @@
         "expected_failure_type": null,
         "record": {
             "settlement_id": "SETT_SYNTH_038",
-            "amount": 1880.5,
-            "gateway_fee": 37.61,
-            "description": "settlement INV-238 (Total: 1880.5)"
+            "amount": 4685.92,
+            "gateway_fee": 93.72,
+            "description": "INV-238 and others (Total: 4685.92)"
         }
     },
     {
         "test_case_id": "SYNTH_039",
-        "expected_status": "REJECTED",
-        "expected_failure_type": "STALE_STATE",
+        "expected_status": "PASSED",
+        "expected_failure_type": null,
         "record": {
             "settlement_id": "SETT_SYNTH_039",
-            "amount": 1764.98,
-            "gateway_fee": 35.3,
-            "description": "messy description || INV-23999 ## (Total: 1764.98)"
+            "amount": 4377.84,
+            "gateway_fee": 87.56,
+            "description": "INV-239 payment (Total: 4377.84)"
         }
     },
     {
@@ -503,9 +503,9 @@
         "expected_failure_type": "AMOUNT_MISMATCH",
         "record": {
             "settlement_id": "SETT_SYNTH_040",
-            "amount": 2753.36,
-            "gateway_fee": 55.06,
-            "description": "INV-24099 and others (Total: 2752.76)"
+            "amount": 4116.34,
+            "gateway_fee": 81.51,
+            "description": "INV-24099 payment (Total: 4075.58)"
         }
     },
     {
@@ -514,31 +514,31 @@
         "expected_failure_type": null,
         "record": {
             "settlement_id": "SETT_SYNTH_041",
-            "amount": 4481.22,
-            "gateway_fee": 89.62,
-            "description": "messy description || INV-241 ## (Total: 4481.22)"
+            "amount": 1994.68,
+            "gateway_fee": 39.89,
+            "description": "INV-241 payment (Total: 1994.68)"
         }
     },
     {
         "test_case_id": "SYNTH_042",
-        "expected_status": "REJECTED",
-        "expected_failure_type": "STALE_STATE",
+        "expected_status": "PASSED",
+        "expected_failure_type": null,
         "record": {
             "settlement_id": "SETT_SYNTH_042",
-            "amount": 987.23,
-            "gateway_fee": 19.74,
-            "description": "INV-24299 and others (Total: 987.23)"
+            "amount": 2011.79,
+            "gateway_fee": 40.24,
+            "description": "messy description || INV-242 ## (Total: 2011.79)"
         }
     },
     {
         "test_case_id": "SYNTH_043",
-        "expected_status": "PASSED",
-        "expected_failure_type": null,
+        "expected_status": "REJECTED",
+        "expected_failure_type": "AMOUNT_MISMATCH",
         "record": {
             "settlement_id": "SETT_SYNTH_043",
-            "amount": 3562.64,
-            "gateway_fee": 71.25,
-            "description": "messy description || INV-243 ## (Total: 3562.64)"
+            "amount": 4230.85,
+            "gateway_fee": 83.78,
+            "description": "INV-243 and others (Total: 4188.96)"
         }
     },
     {
@@ -547,9 +547,9 @@
         "expected_failure_type": null,
         "record": {
             "settlement_id": "SETT_SYNTH_044",
-            "amount": 2614.82,
-            "gateway_fee": 52.3,
-            "description": "settlement INV-244 (Total: 2614.82)"
+            "amount": 4155.41,
+            "gateway_fee": 83.11,
+            "description": "messy description || INV-244 ## (Total: 4155.41)"
         }
     }
 ]

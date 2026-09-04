@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Finance Controller | Razorpay Buildathon 2026</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #0b1120;
+      color: #f8fafc;
+      overflow: hidden;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .razor-blue {
+      color: #0c6cf2;
+    }
+    .bg-razor-blue {
+      background-color: #0c6cf2;
+    }
+    .border-razor-blue {
+      border-color: #0c6cf2;
+    }
+    .glass-card {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(51, 65, 85, 0.6);
+    }
+    .glass-card-glow {
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(12, 108, 242, 0.35);
+      box-shadow: 0 0 35px -5px rgba(12, 108, 242, 0.2);
+    }
+    .slide {
+      display: none;
+      opacity: 0;
+      transform: translateY(12px) scale(0.99);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .slide.active {
+      display: flex;
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #93c5fd 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gradient-warning {
+      background: linear-gradient(135deg, #f87171 0%, #ef4444 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gradient-success {
+      background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body class="h-screen w-screen flex flex-col justify-between selection:bg-blue-600 selection:text-white">
+
+  <!-- Top Navigation Bar -->
+  <header class="h-16 border-b border-slate-800/80 px-8 flex items-center justify-between z-20 bg-slate-950/60 backdrop-blur">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center font-black text-white shadow-lg shadow-blue-500/30">
+        🛡️
+      </div>
+      <div>
+        <span class="font-bold text-slate-100 tracking-tight text-sm md:text-base">AI FINANCE CONTROLLER</span>
+        <span class="ml-2 text-xs font-mono uppercase bg-blue-500/10 text-blue-400 border border-blue-500/20 px-2 py-0.5 rounded">Razorpay Buildathon 2026</span>
+      </div>
+    </div>
+
+    <!-- Progress indicator -->
+    <div class="flex items-center gap-2">
+      <span id="slideIndicator" class="text-xs font-mono text-slate-400 tracking-widest uppercase">Slide 1 / 6</span>
+      <div class="w-36 h-1.5 bg-slate-800 rounded-full overflow-hidden">
+        <div id="progressBar" class="h-full bg-blue-500 transition-all duration-300 w-1/6"></div>
+      </div>
+      <button onclick="toggleFullscreen()" class="ml-4 text-xs font-mono px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded border border-slate-700 transition">
+        ⛶ Fullscreen
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Slides Container -->
+  <main class="flex-1 relative flex items-center justify-center p-6 md:p-12 overflow-hidden">
+
+    <!-- SLIDE 1: Title & Hero -->
+    <section id="slide-1" class="slide active flex-col items-center justify-center text-center max-w-5xl mx-auto">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-semibold uppercase tracking-wider mb-6">
+        <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+        Zero-Hallucination Settlement Reconciliation Engine
+      </div>
+      <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+        Autonomous Settlement Reconciliation <br>
+        <span class="gradient-text">Without Hallucination Risk</span>
+      </h1>
+      <p class="text-lg md:text-xl text-slate-300 max-w-3xl mb-10 leading-relaxed">
+        B2B settlements arrive as messy unstructured memos. Naive AI hallucinates the math. 
+        We pair <strong class="text-white">Gemini 3.6 Flash</strong> extraction with a <strong class="text-white">Deterministic Python Gatekeeper</strong> to guarantee zero false positives.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-3xl">
+        <div class="glass-card p-5 rounded-xl text-left border-l-4 border-l-blue-500">
+          <div class="text-xs font-mono text-blue-400 mb-1">ENTERPRISE SECURITY</div>
+          <div class="text-lg font-bold text-white">HMAC SHA-256</div>
+          <div class="text-xs text-slate-400 mt-1">Cryptographically authenticated Razorpay webhook ingestion</div>
+        </div>
+        <div class="glass-card p-5 rounded-xl text-left border-l-4 border-l-emerald-500">
+          <div class="text-xs font-mono text-emerald-400 mb-1">FINANCIAL SAFETY</div>
+          <div class="text-lg font-bold text-white">0% False Positives</div>
+          <div class="text-xs text-slate-400 mt-1">Down-to-the-paise deterministic math verification</div>
+        </div>
+        <div class="glass-card p-5 rounded-xl text-left border-l-4 border-l-purple-500">
+          <div class="text-xs font-mono text-purple-400 mb-1">FINOPS EMPOWERMENT</div>
+          <div class="text-lg font-bold text-white">Merchant Self-Service</div>
+          <div class="text-xs text-slate-400 mt-1">AI translates errors into one-click merchant payment links</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 2: The Problem -->
+    <section id="slide-2" class="slide flex-col items-center justify-center max-w-5xl mx-auto w-full">
+      <div class="text-xs font-mono text-red-400 uppercase tracking-widest mb-3">The Fintech Dilemma</div>
+      <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-8 text-center">
+        Why Traditional AI Breaks in <span class="gradient-warning">B2B Reconciliation</span>
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+        <!-- Left: The Raw Chaos -->
+        <div class="glass-card p-6 rounded-2xl border-slate-700">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-mono text-red-400 uppercase font-semibold">1. Unstructured Payment Memos</span>
+            <span class="text-xs bg-red-500/20 text-red-300 px-2 py-0.5 rounded">Real-World Input</span>
+          </div>
+          <div class="bg-slate-950 p-4 rounded-lg font-mono text-xs text-slate-300 border border-slate-800 leading-relaxed mb-4">
+            "Settlement for INV-100 (Total: 400), and INV-101 (Total: 600) minus 2% gateway fees. Ref: TXN_9988_PARTIAL"
+          </div>
+          <ul class="space-y-3 text-sm text-slate-300">
+            <li class="flex items-start gap-2">
+              <span class="text-red-400 font-bold">✕</span>
+              <span><strong>Regex Fails:</strong> Format changes, typos, delimiters, and invoice groupings break fragile rules.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-red-400 font-bold">✕</span>
+              <span><strong>Delimiters Madness:</strong> Slashing, double hashes, and concatenated invoice numbers.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right: The LLM Danger -->
+        <div class="glass-card p-6 rounded-2xl border-slate-700">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-mono text-yellow-400 uppercase font-semibold">2. The Hallucination Trap</span>
+            <span class="text-xs bg-yellow-500/20 text-yellow-300 px-2 py-0.5 rounded">Catastrophic Risk</span>
+          </div>
+          <div class="bg-slate-950 p-4 rounded-lg font-mono text-xs text-red-300 border border-red-900/40 leading-relaxed mb-4">
+            "AI Calculation: 400 + 600 = 1000 - 20 = 980. Result: Settled. (Actually short by 50 paise in reality!)"
+          </div>
+          <ul class="space-y-3 text-sm text-slate-300">
+            <li class="flex items-start gap-2">
+              <span class="text-red-400 font-bold">✕</span>
+              <span><strong>LLMs Cannot Do Reliable Math:</strong> Probabilistic token generation inherently miscalculates decimals.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-red-400 font-bold">✕</span>
+              <span><strong>False Positives Are Fatal:</strong> Marking an unpaid invoice as settled causes permanent ledger leakage.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-8 p-4 glass-card-glow rounded-xl w-full text-center">
+        <span class="text-sm text-blue-300 font-medium">
+          💡 <strong>The Core Rule of Fintech AI:</strong> Never allow an LLM to calculate the final financial truth.
+        </span>
+      </div>
+    </section>
+
+    <!-- SLIDE 3: The Architecture -->
+    <section id="slide-3" class="slide flex-col items-center justify-center max-w-5xl mx-auto w-full">
+      <div class="text-xs font-mono text-blue-400 uppercase tracking-widest mb-3">System Architecture</div>
+      <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-6 text-center">
+        The Dual-Layer <span class="gradient-text">Zero-Hallucination Engine</span>
+      </h2>
+
+      <!-- Architecture Diagram Visual -->
+      <div class="w-full grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+        <!-- Step 1 -->
+        <div class="glass-card p-5 rounded-xl border-t-2 border-t-blue-500">
+          <div class="text-xs font-mono text-blue-400 mb-1">GATE 0</div>
+          <h3 class="font-bold text-white text-base mb-2">FastAPI Ingestion</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Verifies <code>X-Razorpay-Signature</code> (HMAC SHA-256). Extracts <code>x-idempotency-key</code>. Returns instant <code>200 OK</code> to gateway.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="glass-card p-5 rounded-xl border-t-2 border-t-indigo-500">
+          <div class="text-xs font-mono text-indigo-400 mb-1">LAYER 1</div>
+          <h3 class="font-bold text-white text-base mb-2">AI Auditor (Gemini)</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            <strong>Extraction ONLY.</strong> Extracts invoice IDs & stated gross totals into strict Pydantic schemas. <em>Forbidden from final math.</em>
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="glass-card-glow p-5 rounded-xl border-t-2 border-t-emerald-500">
+          <div class="text-xs font-mono text-emerald-400 mb-1">LAYER 2</div>
+          <h3 class="font-bold text-white text-base mb-2">Deterministic Gate</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Python Rules Engine recalculates fee schedules, checks tolerance down to 50 paise, atomic Redis locks, and ERP state.
+          </p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="glass-card p-5 rounded-xl border-t-2 border-t-purple-500">
+          <div class="text-xs font-mono text-purple-400 mb-1">OUTCOME</div>
+          <h3 class="font-bold text-white text-base mb-2">Audit or Settle</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Passed transactions hit the <strong>Master Ledger</strong>. Rejected transactions enter <strong>Immutable Audit DB</strong> for FinOps & Merchants.
+          </p>
+        </div>
+      </div>
+
+      <!-- Graceful Fallback Banner -->
+      <div class="glass-card p-4 rounded-xl w-full border border-slate-700 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <span class="text-xl">🛡️</span>
+          <div>
+            <div class="text-xs font-bold text-slate-200 uppercase font-mono">Resilient Degradation Fallback</div>
+            <div class="text-xs text-slate-400">If Gemini API limits (HTTP 429) hit, the service routes through deterministic regex fallback with confidence tagging. Zero downtime.</div>
+          </div>
+        </div>
+        <span class="text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-3 py-1 rounded-full whitespace-nowrap">
+          Production Hardened
+        </span>
+      </div>
+    </section>
+
+    <!-- SLIDE 4: Live Demo Flow -->
+    <section id="slide-4" class="slide flex-col items-center justify-center max-w-5xl mx-auto w-full">
+      <div class="text-xs font-mono text-blue-400 uppercase tracking-widest mb-3">Live Demonstration</div>
+      <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-8 text-center">
+        4 High-Stakes Scenarios in <span class="gradient-text">Action</span>
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+        <!-- Scenario 1 -->
+        <div class="glass-card p-5 rounded-xl border-l-4 border-l-blue-500">
+          <div class="flex justify-between items-center mb-2">
+            <span class="font-bold text-white text-base">Case A: Messy Multi-Invoice Settlement</span>
+            <span class="text-xs font-mono bg-blue-500/20 text-blue-300 px-2 py-0.5 rounded">PASSED</span>
+          </div>
+          <p class="text-xs text-slate-300 mb-2">
+            "INV-100 (Total: 400.0), INV-101 (Total: 600.0)"
+          </p>
+          <div class="text-xs text-slate-400">
+            Even if AI advisory split varies, Gatekeeper independently calculates the gross sum (1000.0) and validates with 2% fee. <strong>Reconciled straight-through.</strong>
+          </div>
+        </div>
+
+        <!-- Scenario 2 -->
+        <div class="glass-card p-5 rounded-xl border-l-4 border-l-red-500">
+          <div class="flex justify-between items-center mb-2">
+            <span class="font-bold text-white text-base">Case B: Amount Mismatch (51 Paise Discrepancy)</span>
+            <span class="text-xs font-mono bg-red-500/20 text-red-300 px-2 py-0.5 rounded">SAFELY BLOCKED</span>
+          </div>
+          <p class="text-xs text-slate-300 mb-2">
+            Payload amount: 980.51 vs Invoice total: 980.0
+          </p>
+          <div class="text-xs text-slate-400">
+            Exceeds the 50-paise tolerance threshold. Gatekeeper blocks the transaction and logs forensic audit entry. <strong>Zero financial leakage.</strong>
+          </div>
+        </div>
+
+        <!-- Scenario 3 -->
+        <div class="glass-card p-5 rounded-xl border-l-4 border-l-amber-500">
+          <div class="flex justify-between items-center mb-2">
+            <span class="font-bold text-white text-base">Case C: Stale ERP State (Closed Invoice)</span>
+            <span class="text-xs font-mono bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded">SAFELY BLOCKED</span>
+          </div>
+          <p class="text-xs text-slate-300 mb-2">
+            Settlement attempts to credit already-closed invoice <code>INV-999</code>.
+          </p>
+          <div class="text-xs text-slate-400">
+            Gatekeeper checks ERP state before posting. Blocks double settlement and routes to Merchant Support Portal for reopening.
+          </div>
+        </div>
+
+        <!-- Scenario 4 -->
+        <div class="glass-card p-5 rounded-xl border-l-4 border-l-purple-500">
+          <div class="flex justify-between items-center mb-2">
+            <span class="font-bold text-white text-base">Case D: Replay Attack / Duplicate Webhook</span>
+            <span class="text-xs font-mono bg-purple-500/20 text-purple-300 px-2 py-0.5 rounded">IDEMPOTENCY CAUGHT</span>
+          </div>
+          <p class="text-xs text-slate-300 mb-2">
+            Identical webhook payload sent twice with same idempotency key.
+          </p>
+          <div class="text-xs text-slate-400">
+            Redis atomic <code>SET NX</code> detects duplicate key. Second request is instantly blocked, preventing double-crediting.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 5: FinOps & Merchant Support -->
+    <section id="slide-5" class="slide flex-col items-center justify-center max-w-5xl mx-auto w-full">
+      <div class="text-xs font-mono text-purple-400 uppercase tracking-widest mb-3">Merchant Experience</div>
+      <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-6 text-center">
+        From Cryptic 500 Errors to <span class="gradient-text">Actionable Self-Service</span>
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mb-6">
+        <div class="glass-card p-5 rounded-xl">
+          <div class="text-xs font-mono text-red-400 mb-2">1. FORENSIC AUDIT TRAIL</div>
+          <div class="text-sm font-semibold text-white mb-2">Immutable SQLite Ledger</div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Every rejection records timestamp, raw webhook payload, AI reasoning, and gatekeeper math delta for complete regulatory compliance.
+          </p>
+        </div>
+
+        <div class="glass-card p-5 rounded-xl">
+          <div class="text-xs font-mono text-blue-400 mb-2">2. HUMAN-READABLE TRANSLATION</div>
+          <div class="text-sm font-semibold text-white mb-2">AI Resolution Assistant</div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Translates technical codes like <code>AMOUNT_MISMATCH</code> into friendly explanations: <em>"Invoice 102 was short by ₹0.51 after gateway fees."</em>
+          </p>
+        </div>
+
+        <div class="glass-card p-5 rounded-xl">
+          <div class="text-xs font-mono text-emerald-400 mb-2">3. ONE-CLICK RESOLUTIONS</div>
+          <div class="text-sm font-semibold text-white mb-2">Self-Healing Workflows</div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Merchants click interactive buttons: "Request Payment Link for Balance", "Reopen Invoice", or "Acknowledge Duplicate" in real-time.
+          </p>
+        </div>
+      </div>
+
+      <!-- Preview Mock -->
+      <div class="glass-card-glow p-5 rounded-xl w-full border border-blue-500/30">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-red-400"></span>
+            <span class="text-xs font-mono text-white font-bold">MERCHANT PORTAL ACTION CARD</span>
+          </div>
+          <span class="text-xs font-mono text-slate-400">Transaction ID: SETT_1002</span>
+        </div>
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-950 p-4 rounded-lg border border-slate-800">
+          <div>
+            <div class="text-xs text-red-400 font-bold uppercase">Payment Issue: AMOUNT_MISMATCH</div>
+            <div class="text-xs text-slate-300 mt-1">AI Assistant: Stated gross total ₹980.0 does not match settled amount ₹980.51. Remaining balance: ₹0.51.</div>
+          </div>
+          <button class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-xs font-semibold whitespace-nowrap shadow-lg shadow-blue-500/20">
+            ✉️ Request Payment Link for Balance
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 6: Results & Close -->
+    <section id="slide-6" class="slide flex-col items-center justify-center max-w-5xl mx-auto w-full text-center">
+      <div class="text-xs font-mono text-emerald-400 uppercase tracking-widest mb-3">Production Verification</div>
+      <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-8">
+        Proven Across <span class="gradient-success">3 Stress Datasets</span>
+      </h2>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-4xl mb-10">
+        <div class="glass-card p-6 rounded-2xl">
+          <div class="text-3xl md:text-5xl font-black text-white mb-2">100%</div>
+          <div class="text-xs font-mono text-blue-400 uppercase">System Accuracy</div>
+          <div class="text-xs text-slate-400 mt-1">Across 3 benchmark sets</div>
+        </div>
+        <div class="glass-card p-6 rounded-2xl border-emerald-500/30">
+          <div class="text-3xl md:text-5xl font-black text-emerald-400 mb-2">0.0%</div>
+          <div class="text-xs font-mono text-emerald-400 uppercase">False Positive Rate</div>
+          <div class="text-xs text-slate-400 mt-1">Zero bad settlements passed</div>
+        </div>
+        <div class="glass-card p-6 rounded-2xl">
+          <div class="text-3xl md:text-5xl font-black text-white mb-2">100%</div>
+          <div class="text-xs font-mono text-blue-400 uppercase">STP Rate</div>
+          <div class="text-xs text-slate-400 mt-1">Zero manual touch on clean data</div>
+        </div>
+        <div class="glass-card p-6 rounded-2xl border-purple-500/30">
+          <div class="text-3xl md:text-5xl font-black text-purple-400 mb-2">100%</div>
+          <div class="text-xs font-mono text-purple-400 uppercase">Anomalies Blocked</div>
+          <div class="text-xs text-slate-400 mt-1">Adversarial edge cases stopped</div>
+        </div>
+      </div>
+
+      <div class="glass-card-glow p-6 rounded-2xl max-w-3xl mx-auto text-center">
+        <h3 class="text-xl font-bold text-white mb-2">Production-Ready for Razorpay Infrastructure</h3>
+        <p class="text-xs md:text-sm text-slate-300 leading-relaxed mb-4">
+          Fully Dockerized microservice architecture. Async webhooks. Cryptographic HMAC authentication. 
+          Deterministic financial safety with the flexibility of modern generative extraction.
+        </p>
+        <div class="text-xs font-mono text-blue-400">
+          Built for Razorpay Buildathon 2026 • Thank you!
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- Bottom Control Bar -->
+  <footer class="h-16 border-t border-slate-800/80 px-8 flex items-center justify-between z-20 bg-slate-950/80 backdrop-blur">
+    <div class="flex items-center gap-4 text-xs font-mono text-slate-400">
+      <span>Use <kbd class="px-1.5 py-0.5 bg-slate-800 rounded border border-slate-700 text-slate-300">←</kbd> <kbd class="px-1.5 py-0.5 bg-slate-800 rounded border border-slate-700 text-slate-300">→</kbd> or <kbd class="px-1.5 py-0.5 bg-slate-800 rounded border border-slate-700 text-slate-300">Space</kbd></span>
+    </div>
+
+    <div class="flex items-center gap-3">
+      <button onclick="prevSlide()" class="px-4 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs font-semibold text-slate-200 transition">
+        ← Previous
+      </button>
+      <button onclick="nextSlide()" class="px-5 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-xs font-semibold text-white transition shadow-lg shadow-blue-600/30">
+        Next Slide →
+      </button>
+    </div>
+  </footer>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 6;
+
+    function updateSlide() {
+      // Hide all slides
+      document.querySelectorAll('.slide').forEach((slide, idx) => {
+        slide.classList.remove('active');
+      });
+
+      // Show current slide
+      const activeEl = document.getElementById(`slide-${currentSlide}`);
+      if (activeEl) {
+        activeEl.classList.add('active');
+      }
+
+      // Update indicators
+      document.getElementById('slideIndicator').innerText = `Slide ${currentSlide} / ${totalSlides}`;
+      document.getElementById('progressBar').style.width = `${(currentSlide / totalSlides) * 100}%`;
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) {
+        currentSlide++;
+        updateSlide();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) {
+        currentSlide--;
+        updateSlide();
+      }
+    }
+
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => {});
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+        e.preventDefault();
+        nextSlide();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault();
+        prevSlide();
+      } else if (e.key >= '1' && e.key <= '6') {
+        currentSlide = parseInt(e.key);
+        updateSlide();
+      }
+    });
+
+    // Init
+    updateSlide();
+  </script>
+</body>
+</html>

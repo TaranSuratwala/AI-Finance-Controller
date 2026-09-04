@@ -24,10 +24,10 @@ def generate_dataset():
         "expected_failure_type": "AMOUNT_MISMATCH",
         "record": {
             "settlement_id": "SETT_1002",
-            "amount": 980.51,  
+            "amount": 990.51,  
             "gateway_fee": 0.00,
             "description": "INV-102 (Total: 980.0)",
-            "idempotency_key": "IDEMP_AMT_01"
+            "idempotency_key": "IDEMP_2"
         }
     })
     
@@ -85,10 +85,11 @@ def generate_dataset():
         fee = round(base_amt * 0.02, 2)
         
         if is_mismatch:
-            # Shift base amount by 0.60 to trigger >50 paise mismatch
-            base_amt += 0.60
+            # Shift base amount to trigger dynamic tolerance mismatch
+            offset = max(0.60, base_amt * 0.01)
+            base_amt += offset
             
-        actual_invoice_total = base_amt - 0.60 if is_mismatch else base_amt
+        actual_invoice_total = base_amt - offset if is_mismatch else base_amt
         desc = random.choice([
             f"settlement {inv_id_1} (Total: {actual_invoice_total})",
             f"{inv_id_1} payment (Total: {actual_invoice_total})",

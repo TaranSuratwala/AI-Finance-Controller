@@ -1,0 +1,64 @@
+{
+	"info": {
+		"name": "Razorpay AI Finance Controller Demo",
+		"description": "Live demo webhook for the pitch script.",
+		"schema": "https://schema.postman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Send Settlement Webhook",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Automatically sign the payload before it gets sent",
+							"const requestBody = pm.request.body.raw;",
+							"const secretKey = \"buildathon_secret_2026\";",
+							"",
+							"const signature = CryptoJS.HmacSHA256(requestBody, secretKey).toString(CryptoJS.enc.Hex);",
+							"",
+							"pm.request.headers.add({",
+							"    key: \"X-Razorpay-Signature\",",
+							"    value: signature",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"settlement_id\": \"SETT_SECURE_001\",\n    \"amount\": 5000.0,\n    \"gateway_fee\": 100.0,\n    \"description\": \"Settlement for INV-999 (Total: 5000)\",\n    \"idempotency_key\": \"IDEMP_SECURE_01\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/webhook/razorpay",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"webhook",
+						"razorpay"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

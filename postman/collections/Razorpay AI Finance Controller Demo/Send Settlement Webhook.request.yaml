@@ -1,0 +1,72 @@
+$kind: http-request
+url: http://localhost:8000/webhook/razorpay
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+        "settlement_id": "SETT_SECURE_001",
+        "amount": 5000.0,
+        "gateway_fee": 100.0,
+        "description": "Settlement for INV-999 (Total: 5000)",
+        "idempotency_key": "IDEMP_SECURE_01"
+    }
+scripts:
+  - type: beforeRequest
+    code: |-
+      // Automatically sign the payload before it gets sent
+      const requestBody = pm.request.body.raw;
+      const secretKey = "buildathon_secret_2026";
+
+      const signature = CryptoJS.HmacSHA256(requestBody, secretKey).toString(CryptoJS.enc.Hex);
+
+      pm.request.headers.add({
+          key: "X-Razorpay-Signature",
+          value: signature
+      });
+    language: text/javascript
+  - type: afterResponse
+    code: |-
+      // ── Status & response time ──────────────────────────────────────────────
+      pm.test("Status code is 200", function () {
+          pm.response.to.have.status(200);
+      });
+
+      pm.test("Response time is under 2000ms", function () {
+          pm.expect(pm.response.responseTime).to.be.below(2000);
+      });
+
+      // ── Content-Type ────────────────────────────────────────────────────────
+      pm.test("Response has JSON content-type", function () {
+          pm.expect(pm.response.headers.get("Content-Type")).to.include("application/json");
+      });
+
+      // ── Body structure ──────────────────────────────────────────────────────
+      const jsonData = pm.response.json();
+
+      pm.test("Response body has 'status' field", function () {
+          pm.expect(jsonData).to.have.property("status");
+      });
+
+      pm.test("Response body has 'message' field", function () {
+          pm.expect(jsonData).to.have.property("message");
+      });
+
+      // ── Business logic ──────────────────────────────────────────────────────
+      pm.test("Status is 'success'", function () {
+          pm.expect(jsonData.status).to.eql("success");
+      });
+
+      pm.test("Message confirms webhook was received and queued", function () {
+          pm.expect(jsonData.message).to.include("Webhook received");
+          pm.expect(jsonData.message).to.include("queued");
+      });
+
+      // ── Signature verification feedback ─────────────────────────────────────
+      pm.test("Webhook was verified (message mentions 'verified')", function () {
+          pm.expect(jsonData.message).to.include("verified");
+      });
+    language: text/javascript
+order: 1000
